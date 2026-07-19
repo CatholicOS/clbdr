@@ -49,13 +49,18 @@ it (Breviarium Romanum → Liturgia Horarum), the successor is a distinct book w
 
 - **`id`** — `<book-slug>_<year>` for Latin editions (preserving the CLEDR's existing
   keys verbatim: `missale_romanum_1970`, `missale_romanum_2002`, `missale_romanum_2008`);
-  `<book-slug>_<territory-or-conference>_<year>` for approved vernacular editions
-  (`martyrologium_romanum_cei_2004`); a trailing `_unofficial` marks translations that
-  are not sanctioned editions (`martyrologium_romanum_en_1916_unofficial`).
-- **`nature`** — `editio_typica`, `editio_typica_altera` (tertia, …),
-  `editio_emendata` (emended reprints, e.g. the 2008 Missal), `editio_vernacula`
-  (approved vernacular edition), `translatio` (translation without the status of an
-  edition).
+  `<book-slug>_<year>_<bcp47>` for approved vernacular editions, following the pattern
+  proposed in the absorbed CRMETDR (`missale_romanum_2011_en_US`,
+  `martyrologium_romanum_2004_it_IT`); a trailing `_unofficial` marks translations that
+  are not sanctioned editions (`martyrologium_romanum_1914_en_unofficial`). Latin
+  Missal editions also carry the CRMETDR's proposed `short_form` (`mr1970`) as an
+  attribute.
+- **`nature`** — `editio_princeps` (pre-typical first prints), `editio_typica`,
+  `editio_typica_altera` (tertia, …), `editio_typica_recognita` (historical
+  revisions), `reimpressio_emendata` (emended reprints, e.g. the 1971 and 2008
+  Missals), `editio_vernacula` (approved vernacular edition), `translatio`
+  (translation without the status of an edition). The vocabulary needs committee
+  harmonization against the title pages of the books themselves.
 - **`scope`** — `universal`, or an ISO 3166-1 alpha-2 / conference key for vernacular
   editions; finer scopes (circumscription, institute) use CECDR / CICLSALDR keys.
 - **`promulgated` / `decree`** — the promulgation act; the in-force window is implicit:
