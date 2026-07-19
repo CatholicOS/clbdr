@@ -1,52 +1,478 @@
 {
   "$comment": "Editions of the liturgical books of the Roman Rite. DRAFT: identifiers follow the CLEDR's established pattern; the Missal line (with short forms) is carried over from the absorbed CRMETDR. Decree citations and dates given as year-only are pending verification against the promulgation decrees. Vernacular lectionary editions (with their volume distributions) are future work.",
   "entries": [
-    {"id": "missale_romanum_1474", "short_form": "mr1474", "book": "book:missale-romanum", "nature": "editio_princeps", "language": "la", "scope": "universal", "promulgated": "1474", "note": "Sixtus IV; first printed book bearing the name Missale Romanum.", "successor": "missale_romanum_1570"},
-    {"id": "missale_romanum_1570", "short_form": "mr1570", "book": "book:missale-romanum", "nature": "editio_typica", "language": "la", "scope": "universal", "promulgated": "1570-07-14", "decree": "Pius V, Const. Ap. Quo primum", "predecessor": "missale_romanum_1474", "successor": "missale_romanum_1604"},
-    {"id": "missale_romanum_1604", "short_form": "mr1604", "book": "book:missale-romanum", "nature": "editio_typica", "language": "la", "scope": "universal", "promulgated": "1604", "note": "Clemens VIII.", "predecessor": "missale_romanum_1570", "successor": "missale_romanum_1634"},
-    {"id": "missale_romanum_1634", "short_form": "mr1634", "book": "book:missale-romanum", "nature": "reimpressio_emendata", "language": "la", "scope": "universal", "promulgated": "1634", "note": "Urbanus VIII.", "predecessor": "missale_romanum_1604", "successor": "missale_romanum_1884"},
-    {"id": "missale_romanum_1884", "short_form": "mr1884", "book": "book:missale-romanum", "nature": "reimpressio_emendata", "language": "la", "scope": "universal", "promulgated": "1884", "note": "Leo XIII.", "predecessor": "missale_romanum_1634", "successor": "missale_romanum_1920"},
-    {"id": "missale_romanum_1920", "short_form": "mr1920", "book": "book:missale-romanum", "nature": "editio_typica", "language": "la", "scope": "universal", "promulgated": "1920", "note": "Benedictus XV; incorporates the revisions promulgated by Pius X.", "predecessor": "missale_romanum_1884", "successor": "missale_romanum_1957"},
-    {"id": "missale_romanum_1957", "short_form": "mr1957", "book": "book:missale-romanum", "nature": "reimpressio_emendata", "language": "la", "scope": "universal", "promulgated": "1957", "note": "Pius XII.", "predecessor": "missale_romanum_1920", "successor": "missale_romanum_1962"},
-    {"id": "missale_romanum_1962", "short_form": "mr1962", "book": "book:missale-romanum", "nature": "editio_typica", "language": "la", "scope": "universal", "promulgated": "1962", "note": "Ioannes XXIII; incorporates the revised Code of Rubrics; the edition of reference for the usus antiquior.", "predecessor": "missale_romanum_1957", "successor": "missale_romanum_1970"},
-    {"id": "missale_romanum_1970", "short_form": "mr1970", "book": "book:missale-romanum", "nature": "editio_typica", "language": "la", "scope": "universal", "promulgated": "1970-03-26", "decree": "SCCD, Decr. Celebrationis eucharisticae; promulgated by Paulus VI, Const. Ap. Missale Romanum (1969-04-03)", "note": "First typical edition of the post-conciliar Missal.", "predecessor": "missale_romanum_1962", "successor": "missale_romanum_1971"},
-    {"id": "missale_romanum_1971", "short_form": "mr1971", "book": "book:missale-romanum", "nature": "reimpressio_emendata", "language": "la", "scope": "universal", "promulgated": "1971", "predecessor": "missale_romanum_1970", "successor": "missale_romanum_1975"},
-    {"id": "missale_romanum_1975", "short_form": "mr1975", "book": "book:missale-romanum", "nature": "editio_typica_altera", "language": "la", "scope": "universal", "promulgated": "1975", "predecessor": "missale_romanum_1971", "successor": "missale_romanum_2002"},
-    {"id": "missale_romanum_2002", "short_form": "mr2002", "book": "book:missale-romanum", "nature": "editio_typica_tertia", "language": "la", "scope": "universal", "promulgated": "2002", "predecessor": "missale_romanum_1975", "successor": "missale_romanum_2008"},
-    {"id": "missale_romanum_2008", "short_form": "mr2008", "book": "book:missale-romanum", "nature": "reimpressio_emendata", "language": "la", "scope": "universal", "promulgated": "2008", "predecessor": "missale_romanum_2002"},
-    {"id": "missale_romanum_2011_en_US", "book": "book:missale-romanum", "nature": "editio_vernacula", "language": "en-US", "scope": "US", "promulgated": "2011", "translation_of": "missale_romanum_2008", "note": "English edition for the United States (example of the vernacular identification pattern <book>_<year>_<bcp47>)."},
-    {"id": "ordo_lectionum_missae_1969", "book": "book:ordo-lectionum-missae", "nature": "editio_typica", "language": "la", "scope": "universal", "promulgated": "1969-05-25", "decree": "SCR, Decr. Ordo lectionum", "successor": "ordo_lectionum_missae_1981"},
-    {"id": "ordo_lectionum_missae_1981", "book": "book:ordo-lectionum-missae", "nature": "editio_typica_altera", "language": "la", "scope": "universal", "promulgated": "1981-01-21", "predecessor": "ordo_lectionum_missae_1969", "sections": ["dominicale-festivum-a", "dominicale-festivum-b", "dominicale-festivum-c", "feriale-annus-1", "feriale-annus-2", "proprium-de-sanctis", "missae-rituales", "missae-votivae", "missae-defunctorum", "missae-ad-diversa"]},
-    {"id": "liturgia_horarum_1971", "book": "book:liturgia-horarum", "nature": "editio_typica", "language": "la", "scope": "universal", "promulgated": "1971-04-11", "decree": "SCCD, Decr. Horarum Liturgia", "successor": "liturgia_horarum_1985", "volumes": [
-      {"n": 1, "title": "Tempus Adventus, Tempus Nativitatis", "covers": ["adventus", "nativitas"]},
-      {"n": 2, "title": "Tempus Quadragesimae, Tempus Paschale", "covers": ["quadragesima", "pascha"]},
-      {"n": 3, "title": "Tempus per annum, hebdomadae I-XVII", "covers": ["per-annum-1-17"]},
-      {"n": 4, "title": "Tempus per annum, hebdomadae XVIII-XXXIV", "covers": ["per-annum-18-34"]}
-    ]},
-    {"id": "liturgia_horarum_1985", "book": "book:liturgia-horarum", "nature": "editio_typica_altera", "language": "la", "scope": "universal", "promulgated": "1985", "predecessor": "liturgia_horarum_1971", "note": "Volumes published 1985-1987."},
-    {"id": "martyrologium_romanum_1584", "book": "book:martyrologium-romanum", "nature": "editio_typica", "language": "la", "scope": "universal", "promulgated": "1584", "note": "Gregorius XIII; first typical edition.", "successor": "martyrologium_romanum_1749"},
-    {"id": "martyrologium_romanum_1749", "book": "book:martyrologium-romanum", "nature": "editio_typica_recognita", "language": "la", "scope": "universal", "promulgated": "1749", "note": "Benedictus XIV revision. Public domain; digitization planned (see martyrology-api).", "predecessor": "martyrologium_romanum_1584", "successor": "martyrologium_romanum_1914"},
-    {"id": "martyrologium_romanum_1914", "book": "book:martyrologium-romanum", "nature": "editio_typica_recognita", "language": "la", "scope": "universal", "promulgated": "1914", "note": "Post-Pius X calendar reform edition; exact promulgation data pending verification. Public domain.", "predecessor": "martyrologium_romanum_1749", "successor": "martyrologium_romanum_2001"},
-    {"id": "martyrologium_romanum_1914_en_unofficial", "book": "book:martyrologium-romanum", "nature": "translatio", "language": "en", "scope": "universal", "promulgated": "1914", "note": "Unofficial English translation of the then-current typical edition; no sanctioned English edition exists. Public domain.", "translation_of": "martyrologium_romanum_1914"},
-    {"id": "martyrologium_romanum_2001", "book": "book:martyrologium-romanum", "nature": "editio_typica", "language": "la", "scope": "universal", "promulgated": "2001-06-29", "decree": "CCDDS, Decr. Victoriam paschalem Christi", "predecessor": "martyrologium_romanum_1914", "successor": "martyrologium_romanum_2004", "note": "First typical edition of the post-conciliar Martyrology."},
-    {"id": "martyrologium_romanum_2004", "book": "book:martyrologium-romanum", "nature": "editio_typica_altera", "language": "la", "scope": "universal", "promulgated": "2004", "predecessor": "martyrologium_romanum_2001", "note": "Anchor edition of the CRMEDR. Amended in the Praenotanda only by the decree Postquam Summus Pontifex, Variationes, 21 Oct 2021 (Prot. N. 394/21)."},
-    {"id": "martyrologium_romanum_2004_it_IT", "book": "book:martyrologium-romanum", "nature": "editio_vernacula", "language": "it-IT", "scope": "IT", "promulgated": "2004", "translation_of": "martyrologium_romanum_2004", "note": "Italian edition (CEI). Per-edition divergences from the Latin are documented in the CRMEDR."},
-    {"id": "de_ordinatione_1968", "book": "book:de-ordinatione", "nature": "editio_typica", "language": "la", "scope": "universal", "promulgated": "1968-08-15", "successor": "de_ordinatione_1990"},
-    {"id": "de_ordinatione_1990", "book": "book:de-ordinatione", "nature": "editio_typica_altera", "language": "la", "scope": "universal", "promulgated": "1990", "predecessor": "de_ordinatione_1968"},
-    {"id": "ordo_confirmationis_1971", "book": "book:ordo-confirmationis", "nature": "editio_typica", "language": "la", "scope": "universal", "promulgated": "1971-08-15", "decree": "Paulus VI, Const. Ap. Divinae consortium naturae"},
-    {"id": "ordo_baptismi_parvulorum_1969", "book": "book:ordo-baptismi-parvulorum", "nature": "editio_typica", "language": "la", "scope": "universal", "promulgated": "1969-05-15", "successor": "ordo_baptismi_parvulorum_1973"},
-    {"id": "ordo_baptismi_parvulorum_1973", "book": "book:ordo-baptismi-parvulorum", "nature": "editio_typica_altera", "language": "la", "scope": "universal", "promulgated": "1973", "predecessor": "ordo_baptismi_parvulorum_1969"},
-    {"id": "ordo_initiationis_christianae_adultorum_1972", "book": "book:ordo-initiationis-christianae-adultorum", "nature": "editio_typica", "language": "la", "scope": "universal", "promulgated": "1972-01-06"},
-    {"id": "ordo_celebrandi_matrimonium_1969", "book": "book:ordo-celebrandi-matrimonium", "nature": "editio_typica", "language": "la", "scope": "universal", "promulgated": "1969-03-19", "successor": "ordo_celebrandi_matrimonium_1991"},
-    {"id": "ordo_celebrandi_matrimonium_1991", "book": "book:ordo-celebrandi-matrimonium", "nature": "editio_typica_altera", "language": "la", "scope": "universal", "promulgated": "1991", "predecessor": "ordo_celebrandi_matrimonium_1969"},
-    {"id": "ordo_exsequiarum_1969", "book": "book:ordo-exsequiarum", "nature": "editio_typica", "language": "la", "scope": "universal", "promulgated": "1969-08-15"},
-    {"id": "ordo_paenitentiae_1973", "book": "book:ordo-paenitentiae", "nature": "editio_typica", "language": "la", "scope": "universal", "promulgated": "1973-12-02"},
-    {"id": "ordo_unctionis_infirmorum_1972", "book": "book:ordo-unctionis-infirmorum", "nature": "editio_typica", "language": "la", "scope": "universal", "promulgated": "1972-12-07"},
-    {"id": "de_sacra_communione_1973", "book": "book:de-sacra-communione", "nature": "editio_typica", "language": "la", "scope": "universal", "promulgated": "1973-06-21"},
-    {"id": "de_benedictionibus_1984", "book": "book:de-benedictionibus", "nature": "editio_typica", "language": "la", "scope": "universal", "promulgated": "1984-05-31"},
-    {"id": "de_exorcismis_1999", "book": "book:de-exorcismis", "nature": "editio_typica", "language": "la", "scope": "universal", "promulgated": "1999", "successor": "de_exorcismis_2004"},
-    {"id": "de_exorcismis_2004", "book": "book:de-exorcismis", "nature": "reimpressio_emendata", "language": "la", "scope": "universal", "promulgated": "2004", "predecessor": "de_exorcismis_1999"},
-    {"id": "caeremoniale_episcoporum_1984", "book": "book:caeremoniale-episcoporum", "nature": "editio_typica", "language": "la", "scope": "universal", "promulgated": "1984-09-14"},
-    {"id": "graduale_romanum_1974", "book": "book:graduale-romanum", "nature": "editio_typica", "language": "la", "scope": "universal", "promulgated": "1974"}
+    {
+      "id": "missale_romanum_1474",
+      "short_form": "mr1474",
+      "book": "book:missale-romanum",
+      "nature": "editio_princeps",
+      "language": "la",
+      "scope": "universal",
+      "promulgated": "1474",
+      "note": "Sixtus IV; first printed book bearing the name Missale Romanum.",
+      "successor": "missale_romanum_1570"
+    },
+    {
+      "id": "missale_romanum_1570",
+      "short_form": "mr1570",
+      "book": "book:missale-romanum",
+      "nature": "editio_typica",
+      "language": "la",
+      "scope": "universal",
+      "promulgated": "1570-07-14",
+      "decree": "Pius V, Const. Ap. Quo primum",
+      "predecessor": "missale_romanum_1474",
+      "successor": "missale_romanum_1604"
+    },
+    {
+      "id": "missale_romanum_1604",
+      "short_form": "mr1604",
+      "book": "book:missale-romanum",
+      "nature": "editio_typica",
+      "language": "la",
+      "scope": "universal",
+      "promulgated": "1604",
+      "note": "Clemens VIII.",
+      "predecessor": "missale_romanum_1570",
+      "successor": "missale_romanum_1634"
+    },
+    {
+      "id": "missale_romanum_1634",
+      "short_form": "mr1634",
+      "book": "book:missale-romanum",
+      "nature": "reimpressio_emendata",
+      "language": "la",
+      "scope": "universal",
+      "promulgated": "1634",
+      "note": "Urbanus VIII.",
+      "predecessor": "missale_romanum_1604",
+      "successor": "missale_romanum_1884"
+    },
+    {
+      "id": "missale_romanum_1884",
+      "short_form": "mr1884",
+      "book": "book:missale-romanum",
+      "nature": "reimpressio_emendata",
+      "language": "la",
+      "scope": "universal",
+      "promulgated": "1884",
+      "note": "Leo XIII.",
+      "predecessor": "missale_romanum_1634",
+      "successor": "missale_romanum_1920"
+    },
+    {
+      "id": "missale_romanum_1920",
+      "short_form": "mr1920",
+      "book": "book:missale-romanum",
+      "nature": "editio_typica",
+      "language": "la",
+      "scope": "universal",
+      "promulgated": "1920",
+      "note": "Benedictus XV; incorporates the revisions promulgated by Pius X.",
+      "predecessor": "missale_romanum_1884",
+      "successor": "missale_romanum_1957"
+    },
+    {
+      "id": "missale_romanum_1957",
+      "short_form": "mr1957",
+      "book": "book:missale-romanum",
+      "nature": "reimpressio_emendata",
+      "language": "la",
+      "scope": "universal",
+      "promulgated": "1957",
+      "note": "Pius XII.",
+      "predecessor": "missale_romanum_1920",
+      "successor": "missale_romanum_1962"
+    },
+    {
+      "id": "missale_romanum_1962",
+      "short_form": "mr1962",
+      "book": "book:missale-romanum",
+      "nature": "editio_typica",
+      "language": "la",
+      "scope": "universal",
+      "promulgated": "1962",
+      "note": "Ioannes XXIII; incorporates the revised Code of Rubrics; the edition of reference for the usus antiquior.",
+      "predecessor": "missale_romanum_1957",
+      "successor": "missale_romanum_1970"
+    },
+    {
+      "id": "missale_romanum_1970",
+      "short_form": "mr1970",
+      "book": "book:missale-romanum",
+      "nature": "editio_typica",
+      "language": "la",
+      "scope": "universal",
+      "promulgated": "1970-03-26",
+      "decree": "SCCD, Decr. Celebrationis eucharisticae; promulgated by Paulus VI, Const. Ap. Missale Romanum (1969-04-03)",
+      "note": "First typical edition of the post-conciliar Missal.",
+      "predecessor": "missale_romanum_1962",
+      "successor": "missale_romanum_1971"
+    },
+    {
+      "id": "missale_romanum_1971",
+      "short_form": "mr1971",
+      "book": "book:missale-romanum",
+      "nature": "reimpressio_emendata",
+      "language": "la",
+      "scope": "universal",
+      "promulgated": "1971",
+      "predecessor": "missale_romanum_1970",
+      "successor": "missale_romanum_1975"
+    },
+    {
+      "id": "missale_romanum_1975",
+      "short_form": "mr1975",
+      "book": "book:missale-romanum",
+      "nature": "editio_typica_altera",
+      "language": "la",
+      "scope": "universal",
+      "promulgated": "1975",
+      "predecessor": "missale_romanum_1971",
+      "successor": "missale_romanum_2002"
+    },
+    {
+      "id": "missale_romanum_2002",
+      "short_form": "mr2002",
+      "book": "book:missale-romanum",
+      "nature": "editio_typica_tertia",
+      "language": "la",
+      "scope": "universal",
+      "promulgated": "2002",
+      "predecessor": "missale_romanum_1975",
+      "successor": "missale_romanum_2008"
+    },
+    {
+      "id": "missale_romanum_2008",
+      "short_form": "mr2008",
+      "book": "book:missale-romanum",
+      "nature": "reimpressio_emendata",
+      "language": "la",
+      "scope": "universal",
+      "promulgated": "2008",
+      "predecessor": "missale_romanum_2002"
+    },
+    {
+      "id": "missale_romanum_2011_en_US",
+      "book": "book:missale-romanum",
+      "nature": "editio_vernacula",
+      "language": "en-US",
+      "scope": "US",
+      "promulgated": "2011",
+      "translation_of": "missale_romanum_2008",
+      "note": "English edition for the United States (example of the vernacular identification pattern <book>_<year>_<bcp47>)."
+    },
+    {
+      "id": "ordo_lectionum_missae_1969",
+      "book": "book:ordo-lectionum-missae",
+      "nature": "editio_typica",
+      "language": "la",
+      "scope": "universal",
+      "promulgated": "1969-05-25",
+      "decree": "SCR, Decr. Ordo lectionum",
+      "successor": "ordo_lectionum_missae_1981"
+    },
+    {
+      "id": "ordo_lectionum_missae_1981",
+      "book": "book:ordo-lectionum-missae",
+      "nature": "editio_typica_altera",
+      "language": "la",
+      "scope": "universal",
+      "promulgated": "1981-01-21",
+      "predecessor": "ordo_lectionum_missae_1969",
+      "sections": [
+        "dominicale-festivum-a",
+        "dominicale-festivum-b",
+        "dominicale-festivum-c",
+        "feriale-annus-1",
+        "feriale-annus-2",
+        "proprium-de-sanctis",
+        "missae-rituales",
+        "missae-votivae",
+        "missae-defunctorum",
+        "missae-ad-diversa"
+      ]
+    },
+    {
+      "id": "liturgia_horarum_1971",
+      "book": "book:liturgia-horarum",
+      "nature": "editio_typica",
+      "language": "la",
+      "scope": "universal",
+      "promulgated": "1971-04-11",
+      "decree": "SCCD, Decr. Horarum Liturgia",
+      "successor": "liturgia_horarum_1985",
+      "volumes": [
+        {
+          "n": 1,
+          "title": "Tempus Adventus, Tempus Nativitatis",
+          "covers": [
+            "adventus",
+            "nativitas"
+          ]
+        },
+        {
+          "n": 2,
+          "title": "Tempus Quadragesimae, Tempus Paschale",
+          "covers": [
+            "quadragesima",
+            "pascha"
+          ]
+        },
+        {
+          "n": 3,
+          "title": "Tempus per annum, hebdomadae I-XVII",
+          "covers": [
+            "per-annum-1-17"
+          ]
+        },
+        {
+          "n": 4,
+          "title": "Tempus per annum, hebdomadae XVIII-XXXIV",
+          "covers": [
+            "per-annum-18-34"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "liturgia_horarum_1985",
+      "book": "book:liturgia-horarum",
+      "nature": "editio_typica_altera",
+      "language": "la",
+      "scope": "universal",
+      "promulgated": "1985",
+      "predecessor": "liturgia_horarum_1971",
+      "note": "Volumes published 1985-1987."
+    },
+    {
+      "id": "martyrologium_romanum_1584",
+      "book": "book:martyrologium-romanum",
+      "nature": "editio_typica",
+      "language": "la",
+      "scope": "universal",
+      "promulgated": "1584",
+      "note": "Gregorius XIII; first typical edition.",
+      "successor": "martyrologium_romanum_1749"
+    },
+    {
+      "id": "martyrologium_romanum_1749",
+      "book": "book:martyrologium-romanum",
+      "nature": "editio_typica_recognita",
+      "language": "la",
+      "scope": "universal",
+      "promulgated": "1749",
+      "note": "Benedictus XIV revision. Public domain; digitization planned (see martyrology-api).",
+      "predecessor": "martyrologium_romanum_1584",
+      "successor": "martyrologium_romanum_1914"
+    },
+    {
+      "id": "martyrologium_romanum_1914",
+      "book": "book:martyrologium-romanum",
+      "nature": "editio_typica_recognita",
+      "language": "la",
+      "scope": "universal",
+      "promulgated": "1914",
+      "note": "Post-Pius X calendar reform edition; exact promulgation data pending verification. Public domain.",
+      "predecessor": "martyrologium_romanum_1749",
+      "successor": "martyrologium_romanum_2001"
+    },
+    {
+      "id": "martyrologium_romanum_1914_en_unofficial",
+      "book": "book:martyrologium-romanum",
+      "nature": "translatio",
+      "language": "en",
+      "scope": "universal",
+      "promulgated": "1914",
+      "note": "Unofficial English translation of the then-current typical edition; no sanctioned English edition exists. Public domain.",
+      "translation_of": "martyrologium_romanum_1914"
+    },
+    {
+      "id": "martyrologium_romanum_2001",
+      "book": "book:martyrologium-romanum",
+      "nature": "editio_typica",
+      "language": "la",
+      "scope": "universal",
+      "promulgated": "2001-06-29",
+      "decree": "CCDDS, Decr. Victoriam paschalem Christi",
+      "predecessor": "martyrologium_romanum_1914",
+      "successor": "martyrologium_romanum_2004",
+      "note": "First typical edition of the post-conciliar Martyrology."
+    },
+    {
+      "id": "martyrologium_romanum_2004",
+      "book": "book:martyrologium-romanum",
+      "nature": "editio_typica_altera",
+      "language": "la",
+      "scope": "universal",
+      "promulgated": "2004",
+      "predecessor": "martyrologium_romanum_2001",
+      "note": "Anchor edition of the CRMEDR. Amended in the Praenotanda only by the decree Postquam Summus Pontifex, Variationes, 21 Oct 2021 (Prot. N. 394/21)."
+    },
+    {
+      "id": "martyrologium_romanum_2004_it_IT",
+      "book": "book:martyrologium-romanum",
+      "nature": "editio_vernacula",
+      "language": "it-IT",
+      "scope": "IT",
+      "promulgated": "2004",
+      "translation_of": "martyrologium_romanum_2004",
+      "note": "Italian edition (CEI). Per-edition divergences from the Latin are documented in the CRMEDR."
+    },
+    {
+      "id": "martyrologium_romanum_2004_en_unofficial",
+      "book": "book:martyrologium-romanum",
+      "nature": "translatio",
+      "language": "en",
+      "scope": "universal",
+      "promulgated": "2004",
+      "translation_of": "martyrologium_romanum_2004",
+      "note": "Unofficial contemporary English translation of the editio altera (no sanctioned English edition exists); used in the digitization workbook and the private martyrology-texts repository."
+    },
+    {
+      "id": "de_ordinatione_1968",
+      "book": "book:de-ordinatione",
+      "nature": "editio_typica",
+      "language": "la",
+      "scope": "universal",
+      "promulgated": "1968-08-15",
+      "successor": "de_ordinatione_1990"
+    },
+    {
+      "id": "de_ordinatione_1990",
+      "book": "book:de-ordinatione",
+      "nature": "editio_typica_altera",
+      "language": "la",
+      "scope": "universal",
+      "promulgated": "1990",
+      "predecessor": "de_ordinatione_1968"
+    },
+    {
+      "id": "ordo_confirmationis_1971",
+      "book": "book:ordo-confirmationis",
+      "nature": "editio_typica",
+      "language": "la",
+      "scope": "universal",
+      "promulgated": "1971-08-15",
+      "decree": "Paulus VI, Const. Ap. Divinae consortium naturae"
+    },
+    {
+      "id": "ordo_baptismi_parvulorum_1969",
+      "book": "book:ordo-baptismi-parvulorum",
+      "nature": "editio_typica",
+      "language": "la",
+      "scope": "universal",
+      "promulgated": "1969-05-15",
+      "successor": "ordo_baptismi_parvulorum_1973"
+    },
+    {
+      "id": "ordo_baptismi_parvulorum_1973",
+      "book": "book:ordo-baptismi-parvulorum",
+      "nature": "editio_typica_altera",
+      "language": "la",
+      "scope": "universal",
+      "promulgated": "1973",
+      "predecessor": "ordo_baptismi_parvulorum_1969"
+    },
+    {
+      "id": "ordo_initiationis_christianae_adultorum_1972",
+      "book": "book:ordo-initiationis-christianae-adultorum",
+      "nature": "editio_typica",
+      "language": "la",
+      "scope": "universal",
+      "promulgated": "1972-01-06"
+    },
+    {
+      "id": "ordo_celebrandi_matrimonium_1969",
+      "book": "book:ordo-celebrandi-matrimonium",
+      "nature": "editio_typica",
+      "language": "la",
+      "scope": "universal",
+      "promulgated": "1969-03-19",
+      "successor": "ordo_celebrandi_matrimonium_1991"
+    },
+    {
+      "id": "ordo_celebrandi_matrimonium_1991",
+      "book": "book:ordo-celebrandi-matrimonium",
+      "nature": "editio_typica_altera",
+      "language": "la",
+      "scope": "universal",
+      "promulgated": "1991",
+      "predecessor": "ordo_celebrandi_matrimonium_1969"
+    },
+    {
+      "id": "ordo_exsequiarum_1969",
+      "book": "book:ordo-exsequiarum",
+      "nature": "editio_typica",
+      "language": "la",
+      "scope": "universal",
+      "promulgated": "1969-08-15"
+    },
+    {
+      "id": "ordo_paenitentiae_1973",
+      "book": "book:ordo-paenitentiae",
+      "nature": "editio_typica",
+      "language": "la",
+      "scope": "universal",
+      "promulgated": "1973-12-02"
+    },
+    {
+      "id": "ordo_unctionis_infirmorum_1972",
+      "book": "book:ordo-unctionis-infirmorum",
+      "nature": "editio_typica",
+      "language": "la",
+      "scope": "universal",
+      "promulgated": "1972-12-07"
+    },
+    {
+      "id": "de_sacra_communione_1973",
+      "book": "book:de-sacra-communione",
+      "nature": "editio_typica",
+      "language": "la",
+      "scope": "universal",
+      "promulgated": "1973-06-21"
+    },
+    {
+      "id": "de_benedictionibus_1984",
+      "book": "book:de-benedictionibus",
+      "nature": "editio_typica",
+      "language": "la",
+      "scope": "universal",
+      "promulgated": "1984-05-31"
+    },
+    {
+      "id": "de_exorcismis_1999",
+      "book": "book:de-exorcismis",
+      "nature": "editio_typica",
+      "language": "la",
+      "scope": "universal",
+      "promulgated": "1999",
+      "successor": "de_exorcismis_2004"
+    },
+    {
+      "id": "de_exorcismis_2004",
+      "book": "book:de-exorcismis",
+      "nature": "reimpressio_emendata",
+      "language": "la",
+      "scope": "universal",
+      "promulgated": "2004",
+      "predecessor": "de_exorcismis_1999"
+    },
+    {
+      "id": "caeremoniale_episcoporum_1984",
+      "book": "book:caeremoniale-episcoporum",
+      "nature": "editio_typica",
+      "language": "la",
+      "scope": "universal",
+      "promulgated": "1984-09-14"
+    },
+    {
+      "id": "graduale_romanum_1974",
+      "book": "book:graduale-romanum",
+      "nature": "editio_typica",
+      "language": "la",
+      "scope": "universal",
+      "promulgated": "1974"
+    }
   ]
 }
