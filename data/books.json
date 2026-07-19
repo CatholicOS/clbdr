@@ -1,0 +1,25 @@
+{
+  "$comment": "Canonical book identities of the liturgical books of the Roman Rite. Draft pending committee review.",
+  "entries": [
+    {"id": "book:missale-romanum", "title_la": "Missale Romanum", "category": "missal"},
+    {"id": "book:ordo-lectionum-missae", "title_la": "Ordo Lectionum Missae", "category": "lectionary", "note": "The Latin reference defining the lectionary's content sections; vernacular lectionaries are editions of this book with their own volume distributions."},
+    {"id": "book:liturgia-horarum", "title_la": "Liturgia Horarum", "category": "liturgy_of_the_hours", "replaces": "book:breviarium-romanum"},
+    {"id": "book:breviarium-romanum", "title_la": "Breviarium Romanum", "category": "liturgy_of_the_hours"},
+    {"id": "book:martyrologium-romanum", "title_la": "Martyrologium Romanum", "category": "martyrology"},
+    {"id": "book:caeremoniale-episcoporum", "title_la": "Caeremoniale Episcoporum", "category": "ceremonial"},
+    {"id": "book:graduale-romanum", "title_la": "Graduale Romanum", "category": "chant"},
+    {"id": "book:pontificale-romanum", "title_la": "Pontificale Romanum", "category": "pontifical", "note": "Pre-conciliar collection book; the post-conciliar ordines below reference it as their collection."},
+    {"id": "book:rituale-romanum", "title_la": "Rituale Romanum", "category": "ritual", "note": "Pre-conciliar collection book; the post-conciliar ordines below reference it as their collection."},
+    {"id": "book:de-ordinatione", "title_la": "De Ordinatione Episcopi, Presbyterorum et Diaconorum", "category": "pontifical", "collection": "book:pontificale-romanum"},
+    {"id": "book:ordo-confirmationis", "title_la": "Ordo Confirmationis", "category": "pontifical", "collection": "book:pontificale-romanum"},
+    {"id": "book:ordo-baptismi-parvulorum", "title_la": "Ordo Baptismi Parvulorum", "category": "ritual", "collection": "book:rituale-romanum"},
+    {"id": "book:ordo-initiationis-christianae-adultorum", "title_la": "Ordo Initiationis Christianae Adultorum", "category": "ritual", "collection": "book:rituale-romanum"},
+    {"id": "book:ordo-celebrandi-matrimonium", "title_la": "Ordo celebrandi Matrimonium", "category": "ritual", "collection": "book:rituale-romanum"},
+    {"id": "book:ordo-exsequiarum", "title_la": "Ordo Exsequiarum", "category": "ritual", "collection": "book:rituale-romanum"},
+    {"id": "book:ordo-paenitentiae", "title_la": "Ordo Paenitentiae", "category": "ritual", "collection": "book:rituale-romanum"},
+    {"id": "book:ordo-unctionis-infirmorum", "title_la": "Ordo Unctionis Infirmorum eorumque pastoralis curae", "category": "ritual", "collection": "book:rituale-romanum"},
+    {"id": "book:de-sacra-communione", "title_la": "De sacra Communione et de cultu Mysterii eucharistici extra Missam", "category": "ritual", "collection": "book:rituale-romanum"},
+    {"id": "book:de-benedictionibus", "title_la": "De Benedictionibus", "category": "benedictional", "collection": "book:rituale-romanum"},
+    {"id": "book:de-exorcismis", "title_la": "De Exorcismis et supplicationibus quibusdam", "category": "ritual", "collection": "book:rituale-romanum"}
+  ]
+}
