@@ -31,3 +31,7 @@ Multi-volume books are packaged differently across editions: the Latin Liturgia 
 - the [martyrology-api](https://github.com/CatholicOS/martyrology-api) resolves *(date, territory, locale)* to the edition in force, to serve the right texts for any year.
 
 > **Note:** all IDs are drafts pending committee review; edition metadata (decree dates, volume structures) marked *pending verification* awaits confirmation against the promulgation decrees.
+
+## License
+
+The data and documentation in this repository are licensed under the [Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License](https://creativecommons.org/licenses/by-nc-nd/4.0/) (CC BY-NC-ND 4.0). See [`LICENSE`](LICENSE) for the full legal code.
