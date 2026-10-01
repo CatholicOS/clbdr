@@ -87,6 +87,61 @@ Multi-volume packaging is an **edition attribute**, not a book attribute. The ru
 Section keys are defined per book in the Latin reference edition's entry (a
 `sections` attribute) and reused by all its vernacular editions.
 
+## Identifier durability
+
+Three cases are already on this repository's record. None is an execution mistake; each is
+what a name-derived identifier does when a name, a fact, or the registry's scope moves.
+
+- **Two documented schemes disagreed, and one of them named an edition that does not
+  exist.** `README.md` described vernacular edition IDs as
+  `<book>_<territory-or-locale>_<year>`, with the example `martyrologium_romanum_cei_2004`;
+  this file specifies `<book-slug>_<year>_<bcp47>`, with the example
+  `martyrologium_romanum_2004_it_IT`. The data follows this file:
+  `martyrologium_romanum_2004_it_IT` is in `data/editions.json`, and
+  `martyrologium_romanum_cei_2004` appears nowhere in the registry. The README is corrected
+  in the same change that adds this section, but the divergence is the recorded case: a
+  scheme whose every segment carries a claim (territory *or* locale? before *or* after the
+  year?) drifts from the prose documenting it, and the documented identifier resolves to
+  nothing.
+- **An unverified year is baked into every edition ID.** `data/editions.json` opens by
+  recording that "Decree citations and dates given as year-only are pending verification
+  against the promulgation decrees" — and the year is the one segment every edition ID is
+  built from. The Missal shows the exposure precisely: `missale_romanum_1970` carries
+  `"promulgated": "1970-03-26"`, while its own decree field reads "promulgated by Paulus
+  VI, Const. Ap. Missale Romanum (1969-04-03)", and the short form `mr1970` repeats the
+  choice a second time. Whichever year verification confirms, one of the two is already
+  written into an identifier, a short form, and the CLEDR keys preserved unchanged here.
+- **An acronym collision forced a whole registry to be absorbed.** CLBDR "absorbs and
+  supersedes" the CRMETDR because "a martyrology editions repository would also have been
+  'CRMETDR'". No book changed; the naming space did. Identity derived from names inherits
+  every collision the names have.
+
+Each case dissolves when the canonical identifier is machine-readable and the
+human-readable layer is guaranteed beside it — both, not one at the cost of the other:
+
+```text
+id:      R7kQp2mXf4LdTbz9Ns3Hc1              # canonical, machine-readable, minted once
+                                             # (illustrative value: shape only, not a minted ID)
+aliases: martyrologium_romanum_2004_it_IT    # permanent, resolvable, never reused
+         martyrologium_romanum_cei_2004      # the README's former form, resolvable too
+labels:  "Martyrologium Romanum"@la · "Martirologio Romano"@it · "Roman Martyrology"@en
+year:    2004                                # an attribute — verifiable, and correctable
+scope:   IT                                  # an attribute, not a segment
+```
+
+Under that shape the two documented schemes stop competing, because both spellings are
+aliases on one record rather than rival claims to be the identity; verifying 1970 against
+1969 edits a field and adds a label, leaving `missale_romanum_1970` and `mr1970` resolvable
+forever; and absorbing a registry re-parents records without re-minting them. The
+alias-and-label mechanism generalizes what the CRMEDR already ships:
+`data/deprecated_ids.json` beside `i18n/{la,it,en}.json`.
+
+The general argument — why canonical identifiers should be machine-readable, what that
+costs, and how the human-readable layer is guaranteed rather than left optional — is set
+out once in *Identifier Durability: Machine-Readable Canonical IRIs* (CDCF
+`foundation-docs`, `research/identifier-durability-opaque-canonical-iris.md`) and is not
+restated here.
+
 ## Open questions for the committee
 
 1. Granularity of the `sections` vocabulary per book (fine enough for volume mapping,
@@ -100,3 +155,8 @@ Section keys are defined per book in the Latin reference edition's entry (a
    *Postquam Summus Pontifex* Variationes for the Martyrology, or the addition of
    saints' memorials to the Missal by decree) should be registered as first-class
    *acts* attached to editions — the CLEDR already cites such decrees as sources.
+5. Whether the canonical ID of an edition should be machine-readable and minted once, with
+   every key this schema produces (`missale_romanum_1970`, its short form `mr1970`,
+   `martyrologium_romanum_2004_it_IT`) kept as a permanent resolvable alias and every
+   edition title carried as a multilingual label — keeping this scheme intact as the
+   human-readable layer rather than replacing it (see "Identifier durability").
