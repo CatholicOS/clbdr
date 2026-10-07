@@ -253,6 +253,17 @@
       "scope": "universal",
       "promulgated": "1584",
       "note": "Gregorius XIII; first typical edition.",
+      "successor": "martyrologium_romanum_1630"
+    },
+    {
+      "id": "martyrologium_romanum_1630",
+      "book": "book:martyrologium-romanum",
+      "nature": "editio_typica_recognita",
+      "language": "la",
+      "scope": "universal",
+      "promulgated": "1630",
+      "note": "Urbanus VIII revision (Romae, Typis Vaticanis, 1630: Gregorii XIII iussu editum et Urbani VIII auctoritate recognitum), printed with Baronius's Notationes and Tractatio de Martyrologio Romano. Public domain; digitized in the martyrology-api.",
+      "predecessor": "martyrologium_romanum_1584",
       "successor": "martyrologium_romanum_1749"
     },
     {
@@ -263,7 +274,7 @@
       "scope": "universal",
       "promulgated": "1749",
       "note": "Benedictus XIV revision. Public domain; digitization planned (see martyrology-api).",
-      "predecessor": "martyrologium_romanum_1584",
+      "predecessor": "martyrologium_romanum_1630",
       "successor": "martyrologium_romanum_1914"
     },
     {
