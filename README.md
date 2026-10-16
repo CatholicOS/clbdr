@@ -18,7 +18,7 @@ book:liturgia-horarum       book:ordo-celebrandi-matrimonium (collection: ritual
 book:de-ordinatione         (collection: pontificale-romanum)  …
 ```
 
-**Editions** (`data/editions.json`) — a specific promulgated edition of a book: `<book>_<year>` for Latin typical editions (`martyrologium_romanum_2004`), `<book>_<territory-or-locale>_<year>` for vernacular editions (`martyrologium_romanum_cei_2004`). Each edition carries its nature (typical edition, revised typical edition, emended reprint, approved vernacular edition, translation), promulgation decree and date, scope, locale, predecessor/successor — and its **volume structure**.
+**Editions** (`data/editions.json`) — a specific promulgated edition of a book: `<book>_<year>` for Latin typical editions (`martyrologium_romanum_2004`), `<book>_<year>_<bcp47>` for approved vernacular editions (`martyrologium_romanum_2004_it_IT`). Each edition carries its nature (typical edition, revised typical edition, emended reprint, approved vernacular edition, translation), promulgation decree and date, scope, locale, predecessor/successor — and its **volume structure**.
 
 ### Volumes: the Latin reference is fixed, vernacular distributions vary
 
