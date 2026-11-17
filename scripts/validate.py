@@ -142,12 +142,15 @@ def validate(data_dir, cesidr_dir=REPO.parent / "cesidr"):
         church = u.get("church", "esi:latin")
         if church not in esi:
             errors.append(f"{where}: unknown church {church}")
+        rite = u.get("rite", "rite:roman")
+        if rite not in rite_ids:
+            errors.append(f"{where}: unknown rite {rite}")
         if u.get("status") == "in_force":
             span = (_bound(u.get("from"), False), _bound(u.get("until"), True))
-            key = (u.get("territory"), u.get("language"), church)
+            key = (u.get("territory"), u.get("language"), church, rite)
             for other in spans.get(key, []):
                 if span[0] <= other[1] and other[0] <= span[1]:
-                    errors.append(f"{where}: in_force period overlaps another row for the same territory/language/church")
+                    errors.append(f"{where}: in_force period overlaps another row for the same territory/language/church/rite")
             spans.setdefault(key, []).append(span)
     return errors
 

@@ -64,6 +64,18 @@ class ValidateTest(unittest.TestCase):
                 dict(USE, **{"from": "2011-11-27"})]
         self.assertEqual(validate(self.fixture(editions=[older, LATIN, US], usage=rows)), [])
 
+    def test_other_rite_same_territory_ok(self):
+        amb_book = dict(BOOK, id="book:missale-ambrosianum", rite="rite:ambrosian")
+        amb_rite = dict(RITE, id="rite:ambrosian")
+        amb = dict(US, id="missale_ambrosianum_2024_en_usccb", book="book:missale-ambrosianum", aliases=[])
+        rows = [USE, dict(USE, edition="missale_ambrosianum_2024_en_usccb", rite="rite:ambrosian")]
+        errs = validate(self.fixture(books=[BOOK, amb_book], rites=[RITE, amb_rite],
+                                     editions=[LATIN, US, amb], usage=rows))
+        self.assertEqual(errs, [])
+
+    def test_usage_unknown_rite(self):
+        self.assertError(validate(self.fixture(usage=[dict(USE, rite="rite:romanus")])), "rite:romanus")
+
     def test_alias_collisions(self):
         dup = dict(US, id="missale_romanum_2016_en_usccb", aliases=[{"key": "US_2011", "system": "litcal-api"}])
         self.assertError(validate(self.fixture(editions=[LATIN, US, dup])), "US_2011")
