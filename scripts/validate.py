@@ -82,6 +82,8 @@ def validate(data_dir, cesidr_dir=REPO.parent / "cesidr"):
     rite_ids = _ids(rites, "rites", errors)
     auth_ids = _ids(authorities, "authorities", errors)
 
+    rites_by_id = {r["id"]: r for r in rites}
+    books_by_id = {b["id"]: b for b in books}
     for r in rites:
         if r.get("tradition") not in trad:
             errors.append(f"rites: {r['id']} has unknown tradition {r.get('tradition')}")
@@ -97,6 +99,9 @@ def validate(data_dir, cesidr_dir=REPO.parent / "cesidr"):
                 errors.append(f"books: {b['id']} has unknown church {c}")
         if b.get("rite") not in rite_ids:
             errors.append(f"books: {b['id']} has unknown rite {b.get('rite')}")
+        elif rites_by_id[b["rite"]].get("tradition") != b.get("tradition"):
+            errors.append(f"books: {b['id']} has tradition {b.get('tradition')} but its rite {b['rite']} "
+                          f"belongs to {rites_by_id[b['rite']].get('tradition')}")
         for ref in ("collection", "replaces"):
             if ref in b and b[ref] not in book_ids:
                 errors.append(f"books: {b['id']} {ref} {b[ref]} does not resolve")
@@ -145,12 +150,30 @@ def validate(data_dir, cesidr_dir=REPO.parent / "cesidr"):
         rite = u.get("rite", "rite:roman")
         if rite not in rite_ids:
             errors.append(f"{where}: unknown rite {rite}")
+        edition = by_id.get(u.get("edition"))
+        book = books_by_id.get(edition["book"]) if edition else None
+        start = u.get("from")
+        if edition:
+            lang = edition.get("language")
+            lang = lang[0] if isinstance(lang, list) else lang
+            if u.get("language") != lang:
+                errors.append(f"{where}: language {u.get('language')} differs from {edition['id']}'s language {lang}")
+            if book and church not in book.get("churches", []):
+                errors.append(f"{where}: church {church} is not among {book['id']}'s churches")
+            if book and rite != book.get("rite"):
+                errors.append(f"{where}: rite {rite} differs from {book['id']}'s rite {book.get('rite')}")
+            # An edition is never in force before it was published: that is the implicit lower bound.
+            issued = edition.get("published") or edition.get("promulgated")
+            if start is not None and issued and _bound(start, False) < _bound(str(issued)[:4], False):
+                errors.append(f"{where}: from {start} is before {edition['id']} was published ({issued})")
+            if start is None:
+                start = edition.get("in_force") or issued
         if u.get("status") == "in_force":
-            span = (_bound(u.get("from"), False), _bound(u.get("until"), True))
-            key = (u.get("territory"), u.get("language"), church, rite)
+            span = (_bound(start, False), _bound(u.get("until"), True))
+            key = (u.get("territory"), u.get("language"), church, rite, book["id"] if book else None)
             for other in spans.get(key, []):
                 if span[0] <= other[1] and other[0] <= span[1]:
-                    errors.append(f"{where}: in_force period overlaps another row for the same territory/language/church/rite")
+                    errors.append(f"{where}: in_force period overlaps another row for the same territory/language/church/rite/book")
             spans.setdefault(key, []).append(span)
     return errors
 

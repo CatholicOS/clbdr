@@ -24,7 +24,7 @@ AUTH = {"id": "usccb", "name": "United States Conference of Catholic Bishops",
 LATIN = {"id": "missale_romanum_2008", "book": "book:missale-romanum", "nature": "reimpressio_emendata",
          "language": "la", "scope": "universal", "promulgated": "2008"}
 US = {"id": "missale_romanum_2011_en_usccb", "book": "book:missale-romanum", "nature": "editio_vernacula",
-      "language": "en", "issuing_authority": "usccb", "translation_of": "missale_romanum_2008",
+      "language": "en", "issuing_authority": "usccb", "translation_of": "missale_romanum_2008", "published": "2011",
       "aliases": [{"key": "missale_romanum_2011_en_US", "system": "clbdr"}, {"key": "US_2011", "system": "litcal-api"}]}
 USE = {"territory": "US", "language": "en", "edition": "missale_romanum_2011_en_usccb", "status": "in_force"}
 
@@ -59,10 +59,12 @@ class ValidateTest(unittest.TestCase):
         self.assertError(validate(self.fixture(usage=rows)), "overlap")
 
     def test_sequential_in_force_ok(self):
-        older = dict(LATIN, id="missale_romanum_1975")
-        rows = [dict(USE, edition="missale_romanum_1975", until="2011-11-26"),
+        older = dict(US, id="missale_romanum_2005_en_usccb", published="2005", aliases=[],
+                     successor="missale_romanum_2011_en_usccb")
+        newer = dict(US, predecessor="missale_romanum_2005_en_usccb")
+        rows = [dict(USE, edition="missale_romanum_2005_en_usccb", until="2011-11-26"),
                 dict(USE, **{"from": "2011-11-27"})]
-        self.assertEqual(validate(self.fixture(editions=[older, LATIN, US], usage=rows)), [])
+        self.assertEqual(validate(self.fixture(editions=[LATIN, older, newer], usage=rows)), [])
 
     def test_other_rite_same_territory_ok(self):
         amb_book = dict(BOOK, id="book:missale-ambrosianum", rite="rite:ambrosian")
@@ -75,6 +77,33 @@ class ValidateTest(unittest.TestCase):
 
     def test_usage_unknown_rite(self):
         self.assertError(validate(self.fixture(usage=[dict(USE, rite="rite:romanus")])), "rite:romanus")
+
+    def test_from_before_edition_published(self):
+        errs = validate(self.fixture(usage=[dict(USE, **{"from": "2005"})]))
+        self.assertError(errs, "before")
+
+    def test_implicit_from_is_edition_date(self):
+        # successor row without `from` must not overlap a predecessor row that ends before it was published
+        old = dict(US, id="missale_romanum_1985_en_usccb", aliases=[], successor="missale_romanum_2011_en_usccb")
+        new = dict(US, predecessor="missale_romanum_1985_en_usccb")
+        rows = [dict(USE, edition="missale_romanum_1985_en_usccb", until="2010-12-31"), USE]
+        self.assertEqual(validate(self.fixture(editions=[LATIN, old, new], usage=rows)), [])
+
+    def test_other_book_same_territory_ok(self):
+        mart_book = dict(BOOK, id="book:martyrologium-romanum", title_la="Martyrologium Romanum", category="martyrology")
+        mart = dict(US, id="martyrologium_romanum_2004_en_usccb", book="book:martyrologium-romanum", aliases=[])
+        mart.pop("translation_of")
+        rows = [USE, dict(USE, edition="martyrologium_romanum_2004_en_usccb")]
+        self.assertEqual(validate(self.fixture(books=[BOOK, mart_book], editions=[LATIN, US, mart], usage=rows)), [])
+
+    def test_usage_church_rite_language_match_book(self):
+        self.assertError(validate(self.fixture(usage=[dict(USE, church="esi:armenian")])), "esi:armenian")
+        amb_rite = dict(RITE, id="rite:ambrosian")
+        self.assertError(validate(self.fixture(rites=[RITE, amb_rite], usage=[dict(USE, rite="rite:ambrosian")])), "rite:ambrosian")
+        self.assertError(validate(self.fixture(usage=[dict(USE, language="es")])), "language es")
+
+    def test_book_rite_tradition_mismatch(self):
+        self.assertError(validate(self.fixture(books=[dict(BOOK, tradition="trad:alexandrian")])), "trad:alexandrian")
 
     def test_alias_collisions(self):
         dup = dict(US, id="missale_romanum_2016_en_usccb", aliases=[{"key": "US_2011", "system": "litcal-api"}])

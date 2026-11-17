@@ -96,9 +96,10 @@ it (Breviarium Romanum → Liturgia Horarum), the successor is a distinct book w
   the title pages of the books themselves.
 - **`language`** — BCP 47; an array where an edition is bilingual, liturgical language
   first (`["xcl", "hyw"]`: Classical with Western Armenian).
-- **`scope`** — `universal` for typical editions. Vernacular editions don't carry it:
-  `issuing_authority` says who issued the edition and `data/usage.json` says where it is
-  used.
+- **`scope`** — `universal` for typical editions. The Missal's vernacular editions don't
+  carry it: `issuing_authority` says who issued the edition and `data/usage.json` says
+  where it is used. Older vernacular editions of other books keep their `scope` until
+  they get usage rows.
 - **`issuing_authority`** (vernacular editions) — the body that approved the edition and
   obtained the *recognitio*: a key into `data/authorities.json`. Where an inter-conference
   body prepared the text (ICEL, AELF), each conference's edition names that conference,
@@ -173,11 +174,24 @@ cdcf-uri-scheme#13, `institution/conference/`).
   - `unknown`: no edition recorded; `edition` is `null`, so the gap stays visible.
 - **`from` / `until`** — the period of an `in_force` row, where known (date or year).
 
-To resolve *(date, territory, language)*, take the `in_force` row whose period contains
-the date (falling back from a subdivision to its country); without one, the `de_facto`
-row. In-force periods never overlap for the same territory, language, church and rite.
-This replaces the earlier rule that inferred the in-force window from promulgation and
-a per-edition `scope`.
+To resolve *(book, date, territory, language)*:
+
+1. Consider the rows whose edition is of that book, with church `esi:latin` and rite
+   `rite:roman` unless the caller asks for another (the Ambrosian Missal is found only by
+   asking for `rite:ambrosian`).
+2. Take the `in_force` row whose period contains the date, falling back from a
+   subdivision to its country. A row without `from` starts at its edition's own
+   `in_force` date, or else at its publication year: an edition is never in force before
+   it was published. A date before every recorded period resolves to nothing, not to the
+   earliest recorded edition.
+3. Without an `in_force` row, take the `de_facto` row.
+
+In-force periods never overlap for the same book, territory, language, church and rite.
+
+The rows currently cover the Missal only. Other books (the Martyrology's
+`martyrologium_romanum_2004_it_IT`) keep the earlier rule until they get rows: the
+in-force window runs from promulgation until superseded by the successor of the same
+`scope`.
 
 ## Validation
 
