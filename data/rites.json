@@ -1,0 +1,12 @@
+{
+  "$comment": "Rites within the liturgical traditions. DRAFT, local vocabulary: CESIDR identifies the Churches sui iuris (esi:) and the liturgical traditions (trad:), but not the rites within a tradition — the Latin tradition alone comprises the Roman, Ambrosian, Hispano-Mozarabic and Bragan rites. This vocabulary belongs in CESIDR eventually and is kept here until it moves. A use within a rite (the Zaire Use of the Roman Rite) is not a rite: it is the `use` attribute of an edition. The `rite:` prefix is a placeholder pending the cross-registry prefix decision (CatholicOS/cdcf-uri-scheme#13).",
+  "id_scheme": "rite:<slug>",
+  "entries": [
+    {"id": "rite:roman", "name_la": "ritus Romanus", "name_en": "Roman Rite", "tradition": "trad:latin"},
+    {"id": "rite:ambrosian", "name_la": "ritus Ambrosianus", "name_en": "Ambrosian Rite", "tradition": "trad:latin", "note": "Proper to the Archdiocese of Milan and parts of the neighbouring dioceses."},
+    {"id": "rite:hispano-mozarabic", "name_la": "ritus Hispano-Mozarabicus", "name_en": "Hispano-Mozarabic Rite", "tradition": "trad:latin", "note": "Celebrated in the Mozarabic Chapel of Toledo Cathedral and on occasion elsewhere in Spain."},
+    {"id": "rite:bragan", "name_la": "ritus Bracarensis", "name_en": "Rite of Braga", "tradition": "trad:latin"},
+    {"id": "rite:armenian", "name_la": "ritus Armenus", "name_en": "Armenian Rite", "tradition": "trad:armenian"},
+    {"id": "rite:geez", "name_la": "ritus Aethiopicus", "name_en": "Ge'ez (Ethiopic) Rite", "tradition": "trad:alexandrian", "note": "The Ge'ez family of the Alexandrian tradition, shared by the Ethiopian and Eritrean Catholic Churches; distinct from the Coptic family of the same tradition."}
+  ]
+}
