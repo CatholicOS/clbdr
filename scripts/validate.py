@@ -25,9 +25,11 @@ PINNED_ESI = {"esi:latin", "esi:albanian", "esi:belarusian", "esi:bulgarian", "e
               "esi:coptic", "esi:eritrean", "esi:ethiopian", "esi:maronite", "esi:syriac",
               "esi:syro-malankara", "esi:chaldean", "esi:syro-malabar", "esi:armenian"}
 
-VERNACULAR_KEY = re.compile(r"^[a-z0-9_]+_\d{4}_[a-z]{2,3}(-[a-z0-9]+)*_[a-z0-9_]+$")
+VERNACULAR_KEY = re.compile(r"^(?P<book>[a-z0-9_]+?)_(?P<year>\d{4})_(?P<lang>[a-z]{2,3}(?:-[a-z0-9]+)*)_(?P<auth>[a-z0-9_]+)$")
 TERRITORY = re.compile(r"^[A-Z]{2}(-[A-Z0-9]{1,3})?$")
-USAGE_STATUS = {"in_force", "adopting", "de_facto", "superseded", "unknown"}
+LANG_TAG = re.compile(r"^[A-Za-z]{2,3}(-[A-Za-z0-9]+)*$")
+DATE = re.compile(r"^\d{4}(-\d{2}(-\d{2})?)?$")
+USAGE_STATUS = {"in_force", "adopting", "de_facto", "unknown"}
 
 
 def _load(path, required=True):
@@ -38,17 +40,26 @@ def _load(path, required=True):
     return json.loads(path.read_text(encoding="utf-8"))["entries"]
 
 
-def _cesidr_keys(cesidr_dir):
-    if cesidr_dir is not None and (cesidr_dir / "data" / "churches.json").exists():
-        trad = {e["id"] for e in _load(cesidr_dir / "data" / "tradition.json")}
-        esi = {e["id"] for e in _load(cesidr_dir / "data" / "churches.json")}
-        return trad, esi
-    return PINNED_TRAD, PINNED_ESI
+def _cesidr_keys(cesidr_dir, errors):
+    if cesidr_dir is None or not (cesidr_dir / "data").is_dir():
+        return PINNED_TRAD, PINNED_ESI
+    keys = []
+    for name, pinned in (("tradition.json", PINNED_TRAD), ("churches.json", PINNED_ESI)):
+        path = cesidr_dir / "data" / name
+        if not path.exists():
+            errors.append(f"cesidr: {path} not found; using the pinned keys")
+            keys.append(pinned)
+        else:
+            keys.append({e["id"] for e in _load(path) if "id" in e})
+    return keys[0], keys[1]
 
 
 def _ids(entries, label, errors):
     seen = set()
-    for e in entries:
+    for i, e in enumerate(entries):
+        if "id" not in e:
+            errors.append(f"{label}[{i}]: entry has no id")
+            continue
         if e["id"] in seen:
             errors.append(f"{label}: duplicate id {e['id']}")
         seen.add(e["id"])
@@ -75,12 +86,13 @@ def validate(data_dir, cesidr_dir=REPO.parent / "cesidr"):
     rites = _load(data_dir / "rites.json", required=False)
     authorities = _load(data_dir / "authorities.json", required=False)
     usage = _load(data_dir / "usage.json", required=False)
-    trad, esi = _cesidr_keys(cesidr_dir)
+    trad, esi = _cesidr_keys(cesidr_dir, errors)
 
     book_ids = _ids(books, "books", errors)
     edition_ids = _ids(editions, "editions", errors)
     rite_ids = _ids(rites, "rites", errors)
     auth_ids = _ids(authorities, "authorities", errors)
+    books, editions, rites = ([e for e in x if "id" in e] for x in (books, editions, rites))
 
     rites_by_id = {r["id"]: r for r in rites}
     books_by_id = {b["id"]: b for b in books}
@@ -115,9 +127,18 @@ def validate(data_dir, cesidr_dir=REPO.parent / "cesidr"):
         for ref in ("translation_of", "predecessor", "successor"):
             if ref in e and e[ref] not in edition_ids:
                 errors.append(f"editions: {eid} {ref} {e[ref]} does not resolve")
+        langs = e.get("language")
+        langs = langs if isinstance(langs, list) else [langs]
+        for tag in langs:
+            if not isinstance(tag, str) or not LANG_TAG.match(tag):
+                errors.append(f"editions: {eid} has a malformed language tag {tag}")
         succ = e.get("successor")
         if succ in by_id and by_id[succ].get("predecessor") != eid:
             errors.append(f"editions: {eid} names successor {succ}, whose predecessor is not {eid}")
+        if succ in by_id and "issuing_authority" in e and (
+                by_id[succ].get("issuing_authority") != e["issuing_authority"]
+                or str(by_id[succ].get("language")).lower() != str(e.get("language")).lower()):
+            errors.append(f"editions: {eid} -> {succ}: a vernacular chain must stay within the same authority and language")
         pred = e.get("predecessor")
         if pred in by_id and by_id[pred].get("successor") != eid:
             errors.append(f"editions: {eid} names predecessor {pred}, whose successor is not {eid}")
@@ -125,8 +146,14 @@ def validate(data_dir, cesidr_dir=REPO.parent / "cesidr"):
         if auth is not None:
             if auth not in auth_ids:
                 errors.append(f"editions: {eid} has unknown issuing_authority {auth}")
-            if not VERNACULAR_KEY.match(eid) or not eid.endswith("_" + auth.replace("-", "_")):
+            m = VERNACULAR_KEY.match(eid)
+            if not m or m["auth"] != auth.replace("-", "_"):
                 errors.append(f"editions: {eid} does not match <book>_<year>_<lang>_{auth}")
+            else:
+                if m["lang"] != str(langs[0]).lower():
+                    errors.append(f"editions: {eid} encodes language {m['lang']} but its language is {langs[0]}")
+                if m["year"] != str(e.get("published", ""))[:4]:
+                    errors.append(f"editions: {eid} encodes year {m['year']} but its published year is {e.get('published')}")
         for a in e.get("aliases", []):
             key = a["key"]
             if key in edition_ids:
@@ -138,12 +165,20 @@ def validate(data_dir, cesidr_dir=REPO.parent / "cesidr"):
     spans = {}
     for i, u in enumerate(usage):
         where = f"usage[{i}] {u.get('territory')}/{u.get('language')}"
-        if not TERRITORY.match(u.get("territory", "")):
+        if not TERRITORY.match(str(u.get("territory") or "")):
             errors.append(f"{where}: bad territory code {u.get('territory')}")
         if u.get("edition") is not None and u["edition"] not in edition_ids:
             errors.append(f"{where}: unknown edition {u['edition']}")
-        if u.get("status") not in USAGE_STATUS:
-            errors.append(f"{where}: bad status {u.get('status')}")
+        status = u.get("status")
+        if status not in USAGE_STATUS:
+            errors.append(f"{where}: bad status {status}")
+        elif status == "unknown" and u.get("edition") is not None:
+            errors.append(f"{where}: status unknown must have a null edition")
+        elif status != "unknown" and u.get("edition") is None:
+            errors.append(f"{where}: status {status} needs an edition")
+        for k in ("from", "until"):
+            if k in u and not DATE.match(str(u[k])):
+                errors.append(f"{where}: {k} {u[k]} is not YYYY, YYYY-MM or YYYY-MM-DD")
         church = u.get("church", "esi:latin")
         if church not in esi:
             errors.append(f"{where}: unknown church {church}")
@@ -155,8 +190,8 @@ def validate(data_dir, cesidr_dir=REPO.parent / "cesidr"):
         start = u.get("from")
         if edition:
             lang = edition.get("language")
-            lang = lang[0] if isinstance(lang, list) else lang
-            if u.get("language") != lang:
+            lang = (lang[0] if isinstance(lang, list) else lang).lower()
+            if str(u.get("language")).lower() != lang:
                 errors.append(f"{where}: language {u.get('language')} differs from {edition['id']}'s language {lang}")
             if book and church not in book.get("churches", []):
                 errors.append(f"{where}: church {church} is not among {book['id']}'s churches")
@@ -168,9 +203,12 @@ def validate(data_dir, cesidr_dir=REPO.parent / "cesidr"):
                 errors.append(f"{where}: from {start} is before {edition['id']} was published ({issued})")
             if start is None:
                 start = edition.get("in_force") or issued
-        if u.get("status") == "in_force":
-            span = (_bound(start, False), _bound(u.get("until"), True))
-            key = (u.get("territory"), u.get("language"), church, rite, book["id"] if book else None)
+        span = (_bound(start, False), _bound(u.get("until"), True))
+        if span[1] < span[0]:
+            errors.append(f"{where}: period ends before it starts ({start} – {u.get('until')})")
+            continue
+        if status == "in_force":
+            key = (u.get("territory"), str(u.get("language")).lower(), church, rite, book["id"] if book else None)
             for other in spans.get(key, []):
                 if span[0] <= other[1] and other[0] <= span[1]:
                     errors.append(f"{where}: in_force period overlaps another row for the same territory/language/church/rite/book")

@@ -172,7 +172,11 @@ cdcf-uri-scheme#13, `institution/conference/`).
     adoption.
   - `adopting`: approved, pending local promulgation.
   - `unknown`: no edition recorded; `edition` is `null`, so the gap stays visible.
-- **`from` / `until`** — the period of an `in_force` row, where known (date or year).
+- **`from` / `until`** — the period of an `in_force` row, where known (`YYYY`, `YYYY-MM` or
+  `YYYY-MM-DD`). A period never ends before it starts.
+- **`language`** — BCP 47, compared case-insensitively. `und` marks one row for a set of
+  languages the survey doesn't name individually (India's "other regional and tribal
+  languages").
 
 To resolve *(book, date, territory, language)*:
 
@@ -184,7 +188,8 @@ To resolve *(book, date, territory, language)*:
    `in_force` date, or else at its publication year: an edition is never in force before
    it was published. A date before every recorded period resolves to nothing, not to the
    earliest recorded edition.
-3. Without an `in_force` row, take the `de_facto` row.
+3. Without an `in_force` row, take the `de_facto` row, under the same lower bound: a date
+   before its edition was published resolves to nothing.
 
 In-force periods never overlap for the same book, territory, language, church and rite.
 
@@ -201,7 +206,10 @@ in-force window runs from promulgation until superseded by the successor of the 
 - predecessor/successor links are symmetric;
 - vernacular keys end in their issuing authority;
 - aliases are unique;
-- in-force periods don't overlap.
+- in-force periods don't overlap, and no period ends before it starts;
+- a vernacular key's year and language match the edition's `published` and `language`;
+- a vernacular edition line stays within one issuing authority and language;
+- a usage row has an edition unless its status is `unknown`, and has none if it is.
 
 `python3 -m unittest discover -s tests` runs its tests.
 

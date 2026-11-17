@@ -191,7 +191,7 @@
       "title": "The Roman Missal",
       "publisher": "Catholic Truth Society",
       "published": "2010",
-      "translation_of": "missale_romanum_2002",
+      "translation_of": "missale_romanum_2008",
       "translation_body": "ICEL",
       "note": "Edition for England and Wales, also used in Scotland and Australia; the shared English text linked by the survey for most anglophone territories.",
       "verification": "pending"
@@ -228,7 +228,7 @@
       "title": "The Roman Missal",
       "publisher": "CCCB Publications",
       "published": "2011",
-      "translation_of": "missale_romanum_2002",
+      "translation_of": "missale_romanum_2008",
       "translation_body": "ICEL",
       "aliases": [
         {
@@ -249,7 +249,7 @@
       "title": "The Roman Missal",
       "publisher": "CCCB Publications",
       "published": "2016",
-      "translation_of": "missale_romanum_2002",
+      "translation_of": "missale_romanum_2008",
       "translation_body": "ICEL",
       "aliases": [
         {
@@ -270,7 +270,7 @@
       "title": "The Roman Missal",
       "publisher": "Veritas",
       "published": "2010",
-      "translation_of": "missale_romanum_2002",
+      "translation_of": "missale_romanum_2008",
       "translation_body": "ICEL",
       "verification": "pending"
     },
@@ -282,7 +282,7 @@
       "issuing_authority": "cbci",
       "title": "The Roman Missal",
       "published": "2011",
-      "translation_of": "missale_romanum_2002",
+      "translation_of": "missale_romanum_2008",
       "translation_body": "ICEL",
       "verification": "pending"
     },
@@ -294,7 +294,7 @@
       "issuing_authority": "nzcbc",
       "title": "The Roman Missal, Third Edition, for Aotearoa New Zealand",
       "published": "2011",
-      "translation_of": "missale_romanum_2002",
+      "translation_of": "missale_romanum_2008",
       "translation_body": "ICEL",
       "note": "Includes bilingual Māori/English provision.",
       "verification": "pending"
@@ -308,7 +308,7 @@
       "title": "The Roman Missal for use in the dioceses of the Philippines",
       "publisher": "ST PAULS",
       "published": "2012",
-      "translation_of": "missale_romanum_2002",
+      "translation_of": "missale_romanum_2008",
       "translation_body": "ICEL",
       "verification": "pending"
     },
@@ -847,7 +847,7 @@
       "published": "1992",
       "translation_of": "missale_romanum_1975",
       "verification": "pending",
-      "successor": "missale_romanum_2005_vi_cbcv"
+      "note": "The complete Vietnamese Missal in use, with the 2005 Order of Mass (missale_romanum_2005_vi_cbcv) in place of its own; the full translation of the third typical edition is in progress."
     },
     {
       "id": "missale_romanum_2005_vi_cbcv",
@@ -859,9 +859,8 @@
       "published": "2005",
       "translation_of": "missale_romanum_2002",
       "recognitio": "Holy See approval, 10 May 2005",
-      "note": "The 2005 Order of Mass from the third typical edition; the full Vietnamese translation of the third edition is in progress.",
-      "verification": "confirmed_title_page",
-      "predecessor": "missale_romanum_1992_vi_cbcv"
+      "note": "Order of Mass only (Nghi thức Thánh lễ 2005), from the third typical edition; used with the complete 1992 Missal (missale_romanum_1992_vi_cbcv), which it does not supersede.",
+      "verification": "confirmed_title_page"
     },
     {
       "id": "missale_romanum_1986_pl_kep",
