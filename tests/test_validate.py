@@ -172,6 +172,13 @@ class ValidateTest(unittest.TestCase):
     def test_bad_territory(self):
         self.assertError(validate(self.fixture(usage=[dict(USE, territory="USA")])), "USA")
 
+    def test_reprint_of_resolves(self):
+        reprint = {"id": "missale_romanum_2012_en_reprint", "book": "book:missale-romanum", "nature": "impressio",
+                   "language": "en", "published": "2012", "reprint_of": "missale_romanum_2011_en_usccbx"}
+        self.assertError(validate(self.fixture(editions=[LATIN, US, reprint])), "reprint_of")
+        reprint["reprint_of"] = US["id"]
+        self.assertEqual(validate(self.fixture(editions=[LATIN, US, reprint])), [])
+
     def test_duplicate_ids(self):
         self.assertError(validate(self.fixture(editions=[LATIN, LATIN, US])), "duplicate")
 

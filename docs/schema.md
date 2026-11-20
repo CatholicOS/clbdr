@@ -90,9 +90,12 @@ it (Breviarium Romanum → Liturgia Horarum), the successor is a distinct book w
   `editio_typica_altera` (tertia, …), `editio_typica_recognita` (historical
   revisions), `reimpressio_emendata` (emended reprints, e.g. the 1971 and 2008
   Missals), `editio_vernacula` (approved vernacular edition), `translatio`
-  (translation without the status of an edition), `impressio` (a historical printing
-  whose standing as a typical edition is not established, e.g. the Mekhitarist printings
-  of the Armenian *Khorhrdatetr*). The vocabulary needs committee harmonization against
+  (translation without the status of an edition), `impressio` (a printing that is not
+  itself an issued edition: a historical printing whose standing as a typical edition is
+  not established, e.g. the Mekhitarist printings of the Armenian *Khorhrdatetr*, or a
+  reprint of an approved text, e.g. the Hebei Faith Press simplified-character reprint
+  of the Taiwan Chinese Missal, whose key ends in its publisher since no
+  `issuing_authority` issued it). The vocabulary needs committee harmonization against
   the title pages of the books themselves.
 - **`language`** — BCP 47; an array where an edition is bilingual, liturgical language
   first (`["xcl", "hyw"]`: Classical with Western Armenian).
@@ -110,6 +113,7 @@ it (Breviarium Romanum → Liturgia Horarum), the successor is a distinct book w
 - **`title`, `publisher`, `use`** — the title as printed; the publisher; a use within
   the rite (`"use": "zairean"`).
 - **`translation_of`** — the typical edition a vernacular edition translates.
+- **`reprint_of`** — the edition whose text an `impressio` reprints.
 - **`predecessor` / `successor`** — the edition line: within the book for typical
   editions; within the same authority and language for vernacular ones.
 - **`aliases`** — other keys that name this edition, each as `{"key", "system"}`:

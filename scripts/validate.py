@@ -124,7 +124,7 @@ def validate(data_dir, cesidr_dir=REPO.parent / "cesidr"):
         eid = e["id"]
         if e.get("book") not in book_ids:
             errors.append(f"editions: {eid} has unknown book {e.get('book')}")
-        for ref in ("translation_of", "predecessor", "successor"):
+        for ref in ("translation_of", "reprint_of", "predecessor", "successor"):
             if ref in e and e[ref] not in edition_ids:
                 errors.append(f"editions: {eid} {ref} {e[ref]} does not resolve")
         langs = e.get("language")

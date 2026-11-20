@@ -703,7 +703,29 @@
       "title": "感恩祭典",
       "published": "1982",
       "translation_of": "missale_romanum_1975",
-      "note": "Approbation 1982 (vol. 1) and 1983 (vols. 2–3). A simplified-character reprint was published by Hebei Faith Press (2005–2006).",
+      "note": "Approbation 1982 (vol. 1) and 1983 (vols. 2–3). Reprinted in simplified characters by Hebei Faith Press: missale_romanum_2005_zh-hans_xinde.",
+      "verification": "pending"
+    },
+    {
+      "id": "missale_romanum_2005_zh-hans_xinde",
+      "book": "book:missale-romanum",
+      "nature": "impressio",
+      "language": "zh-hans",
+      "title": "感恩祭典",
+      "publisher": "Hebei Faith Press (信德社), Shijiazhuang",
+      "published": "2005",
+      "reprint_of": "missale_romanum_1982_zh-hant_crbc",
+      "note": "Simplified-character reprint of the Taiwan (CRBC) text, 2005–2006, in circulation in mainland China. Not an edition issued by a conference in communion with the Holy See: the key ends in the publisher, not an issuing_authority.",
+      "verification": "confirmed_secondary"
+    },
+    {
+      "id": "missale_romanum_2005_zh-hant_hk",
+      "book": "book:missale-romanum",
+      "nature": "editio_vernacula",
+      "language": "zh-hant",
+      "issuing_authority": "hk",
+      "published": "2005",
+      "note": "Sunday Missal in Chinese, new edition by the Diocesan Liturgy Commission (Fides, 12 Dec 2005), retranslated after Liturgiam authenticam; it includes the readings and replaces a translation of the early 1980s. Also in circulation in mainland China, notably Shanghai. Title, script of the mainland printings, recognitio and the typical edition it translates are to verify.",
       "verification": "pending"
     },
     {

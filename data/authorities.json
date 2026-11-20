@@ -345,6 +345,15 @@
       "territories": [
         "PL"
       ]
+    },
+    {
+      "id": "hk",
+      "name": "Catholic Diocese of Hong Kong",
+      "type": "diocese",
+      "territories": [
+        "HK"
+      ],
+      "note": "Immediately subject to the Holy See; belongs to no episcopal conference. Its Diocesan Liturgy Commission issues the diocese's Chinese liturgical books."
     }
   ]
 }
