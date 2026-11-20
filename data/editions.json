@@ -1,5 +1,5 @@
 {
-  "$comment": "Editions of the liturgical books of the Roman Rite. DRAFT: identifiers follow the CLEDR's established pattern; the Missal line (with short forms) is carried over from the absorbed CRMETDR. Decree citations and dates given as year-only are pending verification against the promulgation decrees. Vernacular lectionary editions (with their volume distributions) are future work.",
+  "$comment": "Editions of the liturgical books. DRAFT: Latin edition keys follow the CLEDR's established pattern, and the Latin Missal line (with short forms) is carried over from the absorbed CRMETDR; vernacular edition keys are <book>_<year>_<lang>_<issuing authority> (year = the year on the title page; authority = data/authorities.json). Former keys and other systems' keys are kept in `aliases`. Decree citations and dates given as year-only, and entries marked \"verification\": \"pending\", await confirmation against the books and their decrees. The Missal's vernacular editions come from the 2026 Roman Missal survey; where each is used is recorded in data/usage.json. Vernacular lectionary editions (with their volume distributions) are future work.",
   "entries": [
     {
       "id": "missale_romanum_1474",
@@ -107,7 +107,13 @@
       "decree": "SCCD, Decr. Celebrationis eucharisticae; promulgated by Paulus VI, Const. Ap. Missale Romanum (1969-04-03)",
       "note": "First typical edition of the post-conciliar Missal.",
       "predecessor": "missale_romanum_1962",
-      "successor": "missale_romanum_1971"
+      "successor": "missale_romanum_1971",
+      "aliases": [
+        {
+          "key": "EDITIO_TYPICA_1970",
+          "system": "litcal-api"
+        }
+      ]
     },
     {
       "id": "missale_romanum_1971",
@@ -118,7 +124,13 @@
       "scope": "universal",
       "promulgated": "1971",
       "predecessor": "missale_romanum_1970",
-      "successor": "missale_romanum_1975"
+      "successor": "missale_romanum_1975",
+      "aliases": [
+        {
+          "key": "EDITIO_TYPICA_1971",
+          "system": "litcal-api"
+        }
+      ]
     },
     {
       "id": "missale_romanum_1975",
@@ -129,7 +141,13 @@
       "scope": "universal",
       "promulgated": "1975",
       "predecessor": "missale_romanum_1971",
-      "successor": "missale_romanum_2002"
+      "successor": "missale_romanum_2002",
+      "aliases": [
+        {
+          "key": "EDITIO_TYPICA_1975",
+          "system": "litcal-api"
+        }
+      ]
     },
     {
       "id": "missale_romanum_2002",
@@ -140,7 +158,13 @@
       "scope": "universal",
       "promulgated": "2002",
       "predecessor": "missale_romanum_1975",
-      "successor": "missale_romanum_2008"
+      "successor": "missale_romanum_2008",
+      "aliases": [
+        {
+          "key": "EDITIO_TYPICA_2002",
+          "system": "litcal-api"
+        }
+      ]
     },
     {
       "id": "missale_romanum_2008",
@@ -150,17 +174,756 @@
       "language": "la",
       "scope": "universal",
       "promulgated": "2008",
-      "predecessor": "missale_romanum_2002"
+      "predecessor": "missale_romanum_2002",
+      "aliases": [
+        {
+          "key": "EDITIO_TYPICA_2008",
+          "system": "litcal-api"
+        }
+      ]
     },
     {
-      "id": "missale_romanum_2011_en_US",
+      "id": "missale_romanum_2010_en_cbcew",
       "book": "book:missale-romanum",
       "nature": "editio_vernacula",
-      "language": "en-US",
-      "scope": "US",
-      "promulgated": "2011",
+      "language": "en",
+      "issuing_authority": "cbcew",
+      "title": "The Roman Missal",
+      "publisher": "Catholic Truth Society",
+      "published": "2010",
       "translation_of": "missale_romanum_2008",
-      "note": "English edition for the United States (example of the vernacular identification pattern <book>_<year>_<bcp47>)."
+      "translation_body": "ICEL",
+      "note": "Edition for England and Wales, also used in Scotland and Australia; the shared English text linked by the survey for most anglophone territories.",
+      "verification": "pending"
+    },
+    {
+      "id": "missale_romanum_2011_en_usccb",
+      "book": "book:missale-romanum",
+      "nature": "editio_vernacula",
+      "language": "en",
+      "issuing_authority": "usccb",
+      "title": "The Roman Missal",
+      "publisher": "USCCB (licensed printers incl. Magnificat, LTP, Catholic Book Publishing)",
+      "published": "2011",
+      "translation_of": "missale_romanum_2008",
+      "translation_body": "ICEL",
+      "aliases": [
+        {
+          "key": "missale_romanum_2011_en_US",
+          "system": "clbdr"
+        },
+        {
+          "key": "US_2011",
+          "system": "litcal-api"
+        }
+      ],
+      "verification": "confirmed_secondary"
+    },
+    {
+      "id": "missale_romanum_2011_en_cccb",
+      "book": "book:missale-romanum",
+      "nature": "editio_vernacula",
+      "language": "en",
+      "issuing_authority": "cccb",
+      "title": "The Roman Missal",
+      "publisher": "CCCB Publications",
+      "published": "2011",
+      "translation_of": "missale_romanum_2008",
+      "translation_body": "ICEL",
+      "aliases": [
+        {
+          "key": "CA_2011",
+          "system": "litcal-api"
+        }
+      ],
+      "note": "Canadian edition with its own revisions (including a 2021 wording revision).",
+      "verification": "pending",
+      "successor": "missale_romanum_2016_en_cccb"
+    },
+    {
+      "id": "missale_romanum_2016_en_cccb",
+      "book": "book:missale-romanum",
+      "nature": "editio_vernacula",
+      "language": "en",
+      "issuing_authority": "cccb",
+      "title": "The Roman Missal",
+      "publisher": "CCCB Publications",
+      "published": "2016",
+      "translation_of": "missale_romanum_2008",
+      "translation_body": "ICEL",
+      "aliases": [
+        {
+          "key": "CA_2016",
+          "system": "litcal-api"
+        }
+      ],
+      "note": "Named by the Liturgical Calendar API as the 2016 Roman Missal issued by the CCCB; whether it is a new edition or a revised printing of the 2011 edition is to verify.",
+      "verification": "pending",
+      "predecessor": "missale_romanum_2011_en_cccb"
+    },
+    {
+      "id": "missale_romanum_2010_en_icbc",
+      "book": "book:missale-romanum",
+      "nature": "editio_vernacula",
+      "language": "en",
+      "issuing_authority": "icbc",
+      "title": "The Roman Missal",
+      "publisher": "Veritas",
+      "published": "2010",
+      "translation_of": "missale_romanum_2008",
+      "translation_body": "ICEL",
+      "verification": "pending"
+    },
+    {
+      "id": "missale_romanum_2011_en_cbci",
+      "book": "book:missale-romanum",
+      "nature": "editio_vernacula",
+      "language": "en",
+      "issuing_authority": "cbci",
+      "title": "The Roman Missal",
+      "published": "2011",
+      "translation_of": "missale_romanum_2008",
+      "translation_body": "ICEL",
+      "verification": "pending"
+    },
+    {
+      "id": "missale_romanum_2011_en_nzcbc",
+      "book": "book:missale-romanum",
+      "nature": "editio_vernacula",
+      "language": "en",
+      "issuing_authority": "nzcbc",
+      "title": "The Roman Missal, Third Edition, for Aotearoa New Zealand",
+      "published": "2011",
+      "translation_of": "missale_romanum_2008",
+      "translation_body": "ICEL",
+      "note": "Includes bilingual Māori/English provision.",
+      "verification": "pending"
+    },
+    {
+      "id": "missale_romanum_2012_en_cbcp",
+      "book": "book:missale-romanum",
+      "nature": "editio_vernacula",
+      "language": "en",
+      "issuing_authority": "cbcp",
+      "title": "The Roman Missal for use in the dioceses of the Philippines",
+      "publisher": "ST PAULS",
+      "published": "2012",
+      "translation_of": "missale_romanum_2008",
+      "translation_body": "ICEL",
+      "verification": "pending"
+    },
+    {
+      "id": "missale_romanum_2016_ga_icbc",
+      "book": "book:missale-romanum",
+      "nature": "editio_vernacula",
+      "language": "ga",
+      "issuing_authority": "icbc",
+      "title": "An Leabhar Aifrinn Rómhánach",
+      "publisher": "Veritas Publications",
+      "published": "2016",
+      "translation_of": "missale_romanum_2002",
+      "note": "Irish-language altar missal; altar edition welcomed by the Irish bishops in December 2017; replaced the earlier An Leabhar Aifrinn.",
+      "verification": "confirmed_secondary"
+    },
+    {
+      "id": "missale_romanum_2021_fr_cef",
+      "book": "book:missale-romanum",
+      "nature": "editio_vernacula",
+      "language": "fr",
+      "issuing_authority": "cef",
+      "title": "Missel romain",
+      "publisher": "Mame / Desclée-Mame",
+      "published": "2021",
+      "translation_of": "missale_romanum_2002",
+      "translation_body": "AELF",
+      "note": "Used across francophone Africa, the Indian Ocean, the Caribbean and the Pacific (shared AELF text).",
+      "verification": "pending"
+    },
+    {
+      "id": "missale_romanum_2021_fr_cccb",
+      "book": "book:missale-romanum",
+      "nature": "editio_vernacula",
+      "language": "fr",
+      "issuing_authority": "cccb",
+      "title": "Missel romain",
+      "publisher": "Éditions CECC",
+      "published": "2021",
+      "translation_of": "missale_romanum_2002",
+      "translation_body": "AELF",
+      "verification": "pending"
+    },
+    {
+      "id": "missale_romanum_1988_fr_cenco",
+      "book": "book:missale-romanum",
+      "nature": "editio_vernacula",
+      "language": "fr",
+      "issuing_authority": "cenco",
+      "title": "Missel romain pour les diocèses du Zaïre",
+      "published": "1988",
+      "translation_of": "missale_romanum_1975",
+      "use": "zairean",
+      "recognitio": "CDW confirmation, 30 April 1988",
+      "note": "The Zaire Use of the Roman Rite; imprimatur Kinshasa, September 1988. Prints what is proper to the Zaire Use.",
+      "verification": "confirmed_title_page"
+    },
+    {
+      "id": "missale_romanum_1975_de_stako",
+      "book": "book:missale-romanum",
+      "nature": "editio_vernacula",
+      "language": "de",
+      "issuing_authority": "stako",
+      "title": "Messbuch (1. Auflage)",
+      "publisher": "Herder / Benziger / Pustet …",
+      "published": "1975",
+      "translation_of": "missale_romanum_1970",
+      "verification": "pending",
+      "successor": "missale_romanum_1988_de_stako"
+    },
+    {
+      "id": "missale_romanum_1988_de_stako",
+      "book": "book:missale-romanum",
+      "nature": "editio_vernacula",
+      "language": "de",
+      "issuing_authority": "stako",
+      "title": "Messbuch (2. Auflage)",
+      "publisher": "Herder / Benziger / Pustet …",
+      "published": "1988",
+      "translation_of": "missale_romanum_1975",
+      "note": "Still in force in all German-speaking dioceses: translations of the third typical edition failed (2013 text rejected); a phased revision began in July 2024.",
+      "verification": "pending",
+      "predecessor": "missale_romanum_1975_de_stako"
+    },
+    {
+      "id": "missale_romanum_1978_nl_nbk",
+      "book": "book:missale-romanum",
+      "nature": "editio_vernacula",
+      "language": "nl",
+      "issuing_authority": "nbk",
+      "title": "Altaarmissaal voor de Nederlandse Kerkprovincie (Tweede standaard-editie)",
+      "publisher": "Gooi & Sticht for the Nationale Raad voor Liturgie",
+      "published": "1978",
+      "translation_of": "missale_romanum_1975",
+      "aliases": [
+        {
+          "key": "NL_1978",
+          "system": "litcal-api"
+        }
+      ],
+      "recognitio": "CDW prot. CD 620/77 (4 August 1977), CD 47/78 (22 February 1978), CD 133/78 (11 April 1978)",
+      "in_force": "1979-02-28",
+      "note": "Imprimatur Mgr. J. Bluyssen, 's-Hertogenbosch, 29 June 1978. Shared Dutch/Flemish edition; a revised translation is in progress.",
+      "verification": "confirmed_title_page"
+    },
+    {
+      "id": "missale_romanum_1983_it_cei",
+      "book": "book:missale-romanum",
+      "nature": "editio_vernacula",
+      "language": "it",
+      "issuing_authority": "cei",
+      "title": "Messale Romano (seconda edizione)",
+      "publisher": "Libreria Editrice Vaticana",
+      "published": "1983",
+      "translation_of": "missale_romanum_1975",
+      "aliases": [
+        {
+          "key": "IT_1983",
+          "system": "litcal-api"
+        }
+      ],
+      "verification": "pending",
+      "successor": "missale_romanum_2020_it_cei"
+    },
+    {
+      "id": "missale_romanum_2020_it_cei",
+      "book": "book:missale-romanum",
+      "nature": "editio_vernacula",
+      "language": "it",
+      "issuing_authority": "cei",
+      "title": "Messale Romano (terza edizione)",
+      "publisher": "Libreria Editrice Vaticana",
+      "published": "2020",
+      "translation_of": "missale_romanum_2002",
+      "aliases": [
+        {
+          "key": "IT_2020",
+          "system": "litcal-api"
+        }
+      ],
+      "verification": "confirmed_secondary",
+      "predecessor": "missale_romanum_1983_it_cei"
+    },
+    {
+      "id": "missale_romanum_2009_es_cea",
+      "book": "book:missale-romanum",
+      "nature": "editio_vernacula",
+      "language": "es",
+      "issuing_authority": "cea",
+      "title": "Misal Romano (Nuevo Misal para Argentina, Chile, Uruguay y Paraguay)",
+      "publisher": "Oficina del Libro, CEA",
+      "published": "2009",
+      "translation_of": "missale_romanum_2002",
+      "approved": "2009-02-02",
+      "note": "Approved by Card. J. M. Bergoglio for the CEA (Buenos Aires, 2 February 2009). The title page names its adoption by the conferences of Bolivia, Paraguay and Uruguay.",
+      "verification": "confirmed_title_page"
+    },
+    {
+      "id": "missale_romanum_1991_es_cem",
+      "book": "book:missale-romanum",
+      "nature": "editio_vernacula",
+      "language": "es",
+      "issuing_authority": "cem",
+      "title": "Misal Romano",
+      "publisher": "Buena Prensa",
+      "published": "1991",
+      "translation_of": "missale_romanum_1975",
+      "verification": "pending",
+      "successor": "missale_romanum_2013_es_cem"
+    },
+    {
+      "id": "missale_romanum_2013_es_cem",
+      "book": "book:missale-romanum",
+      "nature": "editio_vernacula",
+      "language": "es",
+      "issuing_authority": "cem",
+      "title": "Misal Romano (tercera edición típica)",
+      "publisher": "Buena Prensa / BAC",
+      "published": "2013",
+      "translation_of": "missale_romanum_2002",
+      "recognitio": "2013-01-21",
+      "note": "Its Presentación names its adoption by conferences of Central America and Venezuela.",
+      "verification": "confirmed_title_page",
+      "predecessor": "missale_romanum_1991_es_cem"
+    },
+    {
+      "id": "missale_romanum_2016_es_cee",
+      "book": "book:missale-romanum",
+      "nature": "editio_vernacula",
+      "language": "es",
+      "issuing_authority": "cee",
+      "title": "Misal Romano (tercera edición)",
+      "publisher": "Coeditores Litúrgicos",
+      "published": "2016",
+      "translation_of": "missale_romanum_2002",
+      "in_force": "2016-11-27",
+      "note": "Adopted by the Dominican Republic (2019); used in Cuba, Ecuador and Equatorial Guinea, whose formal adoption of this edition is unconfirmed. Spain's earlier printings (1987–1993) are not yet recorded.",
+      "verification": "confirmed_title_page"
+    },
+    {
+      "id": "missale_romanum_2017_es_cep_pe",
+      "book": "book:missale-romanum",
+      "nature": "editio_vernacula",
+      "language": "es",
+      "issuing_authority": "cep-pe",
+      "title": "Misal Romano (III edición peruana)",
+      "published": "2017",
+      "translation_of": "missale_romanum_2002",
+      "in_force": "2017-12-03",
+      "note": "Built on the Spanish CEE text.",
+      "verification": "confirmed_secondary"
+    },
+    {
+      "id": "missale_romanum_2008_es_cec",
+      "book": "book:missale-romanum",
+      "nature": "editio_vernacula",
+      "language": "es",
+      "issuing_authority": "cec",
+      "title": "Misal Romano (tercera edición colombiana)",
+      "published": "2008",
+      "translation_of": "missale_romanum_2002",
+      "verification": "pending",
+      "successor": "missale_romanum_2025_es_cec"
+    },
+    {
+      "id": "missale_romanum_2025_es_cec",
+      "book": "book:missale-romanum",
+      "nature": "editio_vernacula",
+      "language": "es",
+      "issuing_authority": "cec",
+      "title": "Misal Romano (cuarta edición colombiana)",
+      "published": "2025",
+      "translation_of": "missale_romanum_2002",
+      "recognitio": "Dicastery for Divine Worship confirmatio, February 2025",
+      "in_force": "2025-11-30",
+      "verification": "confirmed_secondary",
+      "predecessor": "missale_romanum_2008_es_cec"
+    },
+    {
+      "id": "missale_romanum_2018_es_usccb",
+      "book": "book:missale-romanum",
+      "nature": "editio_vernacula",
+      "language": "es",
+      "issuing_authority": "usccb",
+      "title": "Misal Romano, Tercera Edición",
+      "publisher": "USCCB",
+      "published": "2018",
+      "translation_of": "missale_romanum_2002",
+      "verification": "pending"
+    },
+    {
+      "id": "missale_romanum_1992_pt_cep_pt",
+      "book": "book:missale-romanum",
+      "nature": "editio_vernacula",
+      "language": "pt",
+      "issuing_authority": "cep-pt",
+      "title": "Missal Romano (2.ª edição)",
+      "published": "1992",
+      "translation_of": "missale_romanum_1975",
+      "note": "Shared Lusophone edition: still in use in Angola, Cabo Verde, Guiné-Bissau, Moçambique, São Tomé e Príncipe and Timor-Leste.",
+      "verification": "confirmed_secondary",
+      "successor": "missale_romanum_2022_pt_cep_pt"
+    },
+    {
+      "id": "missale_romanum_2022_pt_cep_pt",
+      "book": "book:missale-romanum",
+      "nature": "editio_vernacula",
+      "language": "pt",
+      "issuing_authority": "cep-pt",
+      "title": "Missal Romano (3.ª edição típica)",
+      "published": "2022",
+      "translation_of": "missale_romanum_2002",
+      "approved": "2019-11-14",
+      "recognitio": "Confirmed by Pope Francis, 8 January 2021",
+      "in_force": "2022-04-14",
+      "note": "To become official in the other Lusophone conferences after each one's own procedures.",
+      "verification": "confirmed_secondary",
+      "predecessor": "missale_romanum_1992_pt_cep_pt"
+    },
+    {
+      "id": "missale_romanum_2023_pt_cnbb",
+      "book": "book:missale-romanum",
+      "nature": "editio_vernacula",
+      "language": "pt",
+      "issuing_authority": "cnbb",
+      "title": "Missal Romano (3.ª edição típica)",
+      "publisher": "Edições CNBB",
+      "published": "2023",
+      "translation_of": "missale_romanum_2002",
+      "approved": "2023-05-28",
+      "note": "1st printing Brasília, 5 June 2023.",
+      "verification": "confirmed_title_page"
+    },
+    {
+      "id": "missale_romanum_2022_ca_cet",
+      "book": "book:missale-romanum",
+      "nature": "editio_vernacula",
+      "language": "ca",
+      "issuing_authority": "cet",
+      "title": "Missal Romà (3a edició)",
+      "publisher": "Editorial Balmes / Publicacions de l'Abadia de Montserrat",
+      "published": "2022",
+      "translation_of": "missale_romanum_2002",
+      "recognitio": "CDW confirmation, 22 February 2022",
+      "in_force": "2022-11-27",
+      "note": "First edition to include Valencian texts.",
+      "verification": "confirmed_secondary"
+    },
+    {
+      "id": "missale_romanum_2014_sq_kish",
+      "book": "book:missale-romanum",
+      "nature": "editio_vernacula",
+      "language": "sq",
+      "issuing_authority": "kish",
+      "title": "Meshari Romak (botimi tipik i tretë)",
+      "publisher": "Konferenca Ipeshkvnore e Shqipërisë",
+      "published": "2014",
+      "translation_of": "missale_romanum_2002",
+      "recognitio": "CDW prot. 76/13/L, 5 March 2014",
+      "verification": "confirmed_title_page"
+    },
+    {
+      "id": "missale_romanum_2011_ru_ccbr",
+      "book": "book:missale-romanum",
+      "nature": "editio_vernacula",
+      "language": "ru",
+      "issuing_authority": "ccbr",
+      "title": "Римский Миссал",
+      "publisher": "Издательство францисканцев, Moscow",
+      "published": "2011",
+      "translation_of": "missale_romanum_2002",
+      "verification": "pending"
+    },
+    {
+      "id": "missale_romanum_1983_ar_celra",
+      "book": "book:missale-romanum",
+      "nature": "editio_vernacula",
+      "language": "ar",
+      "issuing_authority": "celra",
+      "title": "كتاب القداس الروماني",
+      "published": "1983",
+      "translation_of": "missale_romanum_1975",
+      "verification": "pending",
+      "successor": "missale_romanum_2022_ar_celra"
+    },
+    {
+      "id": "missale_romanum_2022_ar_celra",
+      "book": "book:missale-romanum",
+      "nature": "editio_vernacula",
+      "language": "ar",
+      "issuing_authority": "celra",
+      "title": "كتاب القداس الروماني",
+      "publisher": "Liturgical Office of the Latin Patriarchate of Jerusalem",
+      "published": "2022",
+      "translation_of": "missale_romanum_2008",
+      "decree": "Prot. N. (1) 338/2021",
+      "note": "Revision of the 1983 Arabic Missal; second printing 2022.",
+      "verification": "confirmed_title_page",
+      "predecessor": "missale_romanum_1983_ar_celra"
+    },
+    {
+      "id": "missale_romanum_2004_be_kkbb",
+      "book": "book:missale-romanum",
+      "nature": "editio_vernacula",
+      "language": "be",
+      "issuing_authority": "kkbb",
+      "title": "Рымскі Імшал",
+      "publisher": "Pro Christo, Minsk",
+      "published": "2004",
+      "translation_of": "missale_romanum_2002",
+      "verification": "confirmed_secondary"
+    },
+    {
+      "id": "missale_romanum_1980_hr_hbk",
+      "book": "book:missale-romanum",
+      "nature": "editio_vernacula",
+      "language": "hr",
+      "issuing_authority": "hbk",
+      "title": "Rimski misal (2. hrvatsko izdanje)",
+      "publisher": "Kršćanska sadašnjost, Zagreb",
+      "published": "1980",
+      "translation_of": "missale_romanum_1975",
+      "note": "Still in force: no Croatian translation of the third typical edition has been published. First Croatian edition 1969.",
+      "verification": "confirmed_secondary"
+    },
+    {
+      "id": "missale_romanum_1982_zh-hant_crbc",
+      "book": "book:missale-romanum",
+      "nature": "editio_vernacula",
+      "language": "zh-hant",
+      "issuing_authority": "crbc",
+      "title": "感恩祭典",
+      "published": "1982",
+      "translation_of": "missale_romanum_1975",
+      "note": "Approbation 1982 (vol. 1) and 1983 (vols. 2–3). Reprinted in simplified characters by Hebei Faith Press: missale_romanum_2005_zh-hans_xinde.",
+      "verification": "pending"
+    },
+    {
+      "id": "missale_romanum_2005_zh-hans_xinde",
+      "book": "book:missale-romanum",
+      "nature": "impressio",
+      "language": "zh-hans",
+      "title": "感恩祭典",
+      "publisher": "Hebei Faith Press (信德社), Shijiazhuang",
+      "published": "2005",
+      "reprint_of": "missale_romanum_1982_zh-hant_crbc",
+      "note": "Simplified-character reprint of the Taiwan (CRBC) text, 2005–2006, in circulation in mainland China. Not an edition issued by a conference in communion with the Holy See: the key ends in the publisher, not an issuing_authority.",
+      "verification": "confirmed_secondary"
+    },
+    {
+      "id": "missale_romanum_2005_zh-hant_hk",
+      "book": "book:missale-romanum",
+      "nature": "editio_vernacula",
+      "language": "zh-hant",
+      "issuing_authority": "hk",
+      "published": "2005",
+      "note": "Sunday Missal in Chinese, new edition by the Diocesan Liturgy Commission (Fides, 12 Dec 2005), retranslated after Liturgiam authenticam; it includes the readings and replaces a translation of the early 1980s. Also in circulation in mainland China, notably Shanghai. Title, script of the mainland printings, recognitio and the typical edition it translates are to verify.",
+      "verification": "pending"
+    },
+    {
+      "id": "missale_romanum_1983_cs_cbk",
+      "book": "book:missale-romanum",
+      "nature": "editio_vernacula",
+      "language": "cs",
+      "issuing_authority": "cbk",
+      "title": "Římský misál",
+      "published": "1983",
+      "translation_of": "missale_romanum_1975",
+      "note": "Reissued 2015 (KNA).",
+      "verification": "pending"
+    },
+    {
+      "id": "missale_romanum_1991_hu_mkpk",
+      "book": "book:missale-romanum",
+      "nature": "editio_vernacula",
+      "language": "hu",
+      "issuing_authority": "mkpk",
+      "title": "Római misekönyv",
+      "publisher": "Szent István Társulat",
+      "published": "1991",
+      "translation_of": "missale_romanum_1975",
+      "verification": "confirmed_secondary"
+    },
+    {
+      "id": "missale_romanum_2020_id_kwi",
+      "book": "book:missale-romanum",
+      "nature": "editio_vernacula",
+      "language": "id",
+      "issuing_authority": "kwi",
+      "title": "Tata Perayaan Ekaristi",
+      "publisher": "Obor",
+      "published": "2020",
+      "translation_of": "missale_romanum_2002",
+      "note": "Order of Mass (TPE 2020); the priest's book (Buku Imam) was published by Obor in 2021.",
+      "verification": "confirmed_title_page"
+    },
+    {
+      "id": "missale_romanum_1978_ja_cbcj",
+      "book": "book:missale-romanum",
+      "nature": "editio_vernacula",
+      "language": "ja",
+      "issuing_authority": "cbcj",
+      "title": "ミサ典礼書",
+      "published": "1978",
+      "translation_of": "missale_romanum_1975",
+      "verification": "pending",
+      "successor": "missale_romanum_2022_ja_cbcj"
+    },
+    {
+      "id": "missale_romanum_2022_ja_cbcj",
+      "book": "book:missale-romanum",
+      "nature": "editio_vernacula",
+      "language": "ja",
+      "issuing_authority": "cbcj",
+      "title": "ミサ典礼書",
+      "published": "2022",
+      "translation_of": "missale_romanum_2002",
+      "note": "Revised translation; the 2022 altar edition. Whether it is a complete Missal or a revised Order of Mass is to verify.",
+      "verification": "confirmed_secondary",
+      "predecessor": "missale_romanum_1978_ja_cbcj"
+    },
+    {
+      "id": "missale_romanum_2017_ko_cbck",
+      "book": "book:missale-romanum",
+      "nature": "editio_vernacula",
+      "language": "ko",
+      "issuing_authority": "cbck",
+      "title": "로마 미사 경본",
+      "published": "2017",
+      "translation_of": "missale_romanum_2002",
+      "verification": "confirmed_secondary"
+    },
+    {
+      "id": "missale_romanum_2006_ro_cer",
+      "book": "book:missale-romanum",
+      "nature": "editio_vernacula",
+      "language": "ro",
+      "issuing_authority": "cer",
+      "title": "Liturghierul roman",
+      "publisher": "Editura Sapientia, Iași",
+      "published": "2006",
+      "verification": "pending"
+    },
+    {
+      "id": "missale_romanum_2021_sk_kbs",
+      "book": "book:missale-romanum",
+      "nature": "editio_vernacula",
+      "language": "sk",
+      "issuing_authority": "kbs",
+      "title": "Rímsky misál (3. typické vydanie)",
+      "published": "2021",
+      "translation_of": "missale_romanum_2002",
+      "in_force": "2022-01-01",
+      "verification": "confirmed_secondary"
+    },
+    {
+      "id": "missale_romanum_1992_sl_ssk",
+      "book": "book:missale-romanum",
+      "nature": "editio_vernacula",
+      "language": "sl",
+      "issuing_authority": "ssk",
+      "title": "Rimski misal (editio secunda)",
+      "published": "1992",
+      "translation_of": "missale_romanum_1975",
+      "verification": "confirmed_secondary"
+    },
+    {
+      "id": "missale_romanum_2013_sv_stockholm",
+      "book": "book:missale-romanum",
+      "nature": "editio_vernacula",
+      "language": "sv",
+      "issuing_authority": "stockholm",
+      "title": "Missale för Stockholms katolska stift",
+      "publisher": "Katolska Liturgiska Nämnden",
+      "published": "2013",
+      "verification": "confirmed_secondary"
+    },
+    {
+      "id": "missale_romanum_2012_uk_krkeu",
+      "book": "book:missale-romanum",
+      "nature": "editio_vernacula",
+      "language": "uk",
+      "issuing_authority": "krkeu",
+      "title": "Римський Месал",
+      "publisher": "Luceoria Books, Lutsk",
+      "published": "2012",
+      "translation_of": "missale_romanum_2002",
+      "recognitio": "CDW prot. 2417/03/L, 4 October 2004",
+      "verification": "confirmed_title_page"
+    },
+    {
+      "id": "missale_romanum_1992_vi_cbcv",
+      "book": "book:missale-romanum",
+      "nature": "editio_vernacula",
+      "language": "vi",
+      "issuing_authority": "cbcv",
+      "title": "Sách Lễ Rôma",
+      "published": "1992",
+      "translation_of": "missale_romanum_1975",
+      "verification": "pending",
+      "note": "The complete Vietnamese Missal in use, with the 2005 Order of Mass (missale_romanum_2005_vi_cbcv) in place of its own; the full translation of the third typical edition is in progress."
+    },
+    {
+      "id": "missale_romanum_2005_vi_cbcv",
+      "book": "book:missale-romanum",
+      "nature": "editio_vernacula",
+      "language": "vi",
+      "issuing_authority": "cbcv",
+      "title": "Sách Lễ Rôma (Nghi thức Thánh lễ 2005)",
+      "published": "2005",
+      "translation_of": "missale_romanum_2002",
+      "recognitio": "Holy See approval, 10 May 2005",
+      "note": "Order of Mass only (Nghi thức Thánh lễ 2005), from the third typical edition; used with the complete 1992 Missal (missale_romanum_1992_vi_cbcv), which it does not supersede.",
+      "verification": "confirmed_title_page"
+    },
+    {
+      "id": "missale_romanum_1986_pl_kep",
+      "book": "book:missale-romanum",
+      "nature": "editio_vernacula",
+      "language": "pl",
+      "issuing_authority": "kep",
+      "title": "Mszał Rzymski dla diecezji polskich",
+      "publisher": "Pallottinum",
+      "published": "1986",
+      "translation_of": "missale_romanum_1975",
+      "note": "No Polish translation of the third typical edition yet; translation in progress.",
+      "verification": "pending"
+    },
+    {
+      "id": "missale_romanum_1982_tl_cbcp",
+      "book": "book:missale-romanum",
+      "nature": "editio_vernacula",
+      "language": "tl",
+      "issuing_authority": "cbcp",
+      "title": "Aklat ng Pagmimisa sa Roma (Ikalawang Huwarang Sipi)",
+      "published": "1982",
+      "translation_of": "missale_romanum_1975",
+      "decree": "Jaime Cardinal Sin, 22 November 1981",
+      "recognitio": "CDW prot. CD 925/78 and CD 915/81",
+      "in_force": "1981-12-27",
+      "verification": "confirmed_title_page",
+      "successor": "missale_romanum_2012_tl_cbcp"
+    },
+    {
+      "id": "missale_romanum_2012_tl_cbcp",
+      "book": "book:missale-romanum",
+      "nature": "editio_vernacula",
+      "language": "tl",
+      "issuing_authority": "cbcp",
+      "title": "Aklat ng Pagmimisa sa Roma (Ikatlong Huwarang Sipi)",
+      "publisher": "CBCP Episcopal Commission on Liturgy / Archdiocesan Liturgical Commission, Manila",
+      "published": "2012",
+      "translation_of": "missale_romanum_2002",
+      "verification": "pending",
+      "predecessor": "missale_romanum_1982_tl_cbcp"
     },
     {
       "id": "ordo_lectionum_missae_1969",
@@ -484,6 +1247,101 @@
       "language": "la",
       "scope": "universal",
       "promulgated": "1974"
+    },
+    {
+      "id": "missale_ambrosianum_2024_it_milano",
+      "book": "book:missale-ambrosianum",
+      "nature": "editio_vernacula",
+      "language": "it",
+      "issuing_authority": "milano",
+      "title": "Messale Ambrosiano",
+      "publisher": "Centro Ambrosiano",
+      "published": "2024",
+      "note": "Italian Missal of the Ambrosian Rite. Publisher stated from context, to verify against the title page.",
+      "verification": "pending"
+    },
+    {
+      "id": "khorhrdatetr_1823",
+      "book": "book:khorhrdatetr",
+      "nature": "impressio",
+      "language": "xcl",
+      "scope": "universal",
+      "promulgated": "1823",
+      "promulgated_by": "Mekhitarist Congregation, San Lazzaro, Venice",
+      "note": "Catholic-recension printing.",
+      "verification": "pending"
+    },
+    {
+      "id": "khorhrdatetr_1858",
+      "book": "book:khorhrdatetr",
+      "nature": "impressio",
+      "language": "xcl",
+      "scope": "universal",
+      "promulgated": "1858",
+      "promulgated_by": "Mekhitarist Congregation, Vienna",
+      "note": "Catholic-recension printing after the Roman exemplar.",
+      "verification": "pending"
+    },
+    {
+      "id": "khorhrdatetr_1879",
+      "book": "book:khorhrdatetr",
+      "nature": "impressio",
+      "language": "xcl",
+      "scope": "universal",
+      "promulgated": "1879",
+      "promulgated_by": "Mekhitarist Congregation, Vienna",
+      "note": "Full altar edition.",
+      "verification": "pending"
+    },
+    {
+      "id": "khorhrdatetr_2007",
+      "book": "book:khorhrdatetr",
+      "nature": "editio_typica",
+      "language": [
+        "xcl",
+        "hyw"
+      ],
+      "scope": "universal",
+      "promulgated": "2007",
+      "promulgated_by": "Nerses Bedros XIX, Catholicos-Patriarch of Cilicia of the Armenians",
+      "decree": "Kondak of 7 November 2006, Divan no. 279/06",
+      "note": "Bzommar 2007, Classical Armenian (Grabar) with Western Armenian. The Pope is commemorated by name in the Great Intercession. Earlier Catholic printings: Rome (Propaganda) 1642 and 1677. Also known: an Italian translation by Avedichian (1832) and Gatrchean's critical edition (1897), which are not editions of the liturgical book.",
+      "verification": "confirmed_title_page"
+    },
+    {
+      "id": "metshafe_qeddase_1548",
+      "book": "book:metshafe-qeddase",
+      "nature": "editio_princeps",
+      "language": "gez",
+      "scope": "universal",
+      "promulgated": "1548",
+      "promulgated_by": "Tasfa Seyon, Rome",
+      "note": "Rome 1548–1549.",
+      "verification": "pending"
+    },
+    {
+      "id": "metshafe_qeddase_1945",
+      "book": "book:metshafe-qeddase",
+      "nature": "impressio",
+      "language": "gez",
+      "scope": "universal",
+      "promulgated": "1945",
+      "promulgated_by": "Sacred Congregation for the Oriental Churches",
+      "title": "Missale Aethiopicum",
+      "note": "Typis Polyglottis Vaticanis, edited by A. van Lantschoot, with 17 anaphoras. Other Catholic printings: Keren 1890, Asmara 1914–15, Rome 1938, Asmara 1993 (Ge'ez–Tigrinya).",
+      "verification": "pending"
+    },
+    {
+      "id": "metshafe_qeddase_2025",
+      "book": "book:metshafe-qeddase",
+      "nature": "editio_typica",
+      "language": "gez",
+      "scope": "universal",
+      "promulgated": "2025",
+      "promulgated_by": "Dicastery for the Eastern Churches",
+      "presented": "2025-05-27",
+      "note": "The new common Ge'ez Missal for the Ethiopian and Eritrean Catholic Churches, about 25 years in preparation; first edition with chant notation.",
+      "verification": "confirmed_secondary"
     }
   ]
 }

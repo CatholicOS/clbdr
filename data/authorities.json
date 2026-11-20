@@ -1,0 +1,359 @@
+{
+  "$comment": "Issuing authorities of vernacular editions: the bishops' conference or other body that approved an edition and obtained the recognitio. DRAFT placeholder keys, minted here until a registry of episcopal conferences exists (cf. CatholicOS/cdcf-uri-scheme#13, institution/conference/). Where a text was prepared by an inter-conference translation body (ICEL, AELF), each conference's own edition names that conference here and the body in the edition's `translation_body`. `territories` are ISO 3166-1 alpha-2 or ISO 3166-2 codes.",
+  "entries": [
+    {
+      "id": "cbcew",
+      "name": "Catholic Bishops' Conference of England and Wales",
+      "type": "episcopal_conference",
+      "territories": [
+        "GB-ENG",
+        "GB-WLS"
+      ],
+      "note": "Its CTS edition of the English Missal is also used in Scotland and Australia."
+    },
+    {
+      "id": "usccb",
+      "name": "United States Conference of Catholic Bishops",
+      "type": "episcopal_conference",
+      "territories": [
+        "US"
+      ]
+    },
+    {
+      "id": "cccb",
+      "name": "Canadian Conference of Catholic Bishops / Conférence des évêques catholiques du Canada (CECC)",
+      "type": "episcopal_conference",
+      "territories": [
+        "CA"
+      ]
+    },
+    {
+      "id": "icbc",
+      "name": "Irish Catholic Bishops' Conference",
+      "type": "episcopal_conference",
+      "territories": [
+        "IE",
+        "GB-NIR"
+      ]
+    },
+    {
+      "id": "cbci",
+      "name": "Catholic Bishops' Conference of India",
+      "type": "episcopal_conference",
+      "territories": [
+        "IN"
+      ]
+    },
+    {
+      "id": "nzcbc",
+      "name": "New Zealand Catholic Bishops Conference",
+      "type": "episcopal_conference",
+      "territories": [
+        "NZ"
+      ]
+    },
+    {
+      "id": "cbcp",
+      "name": "Catholic Bishops' Conference of the Philippines",
+      "type": "episcopal_conference",
+      "territories": [
+        "PH"
+      ]
+    },
+    {
+      "id": "cef",
+      "name": "Conférence des évêques de France",
+      "type": "episcopal_conference",
+      "territories": [
+        "FR"
+      ],
+      "note": "The French Missel romain is the AELF translation, published in France by Mame/Desclée-Mame and used across francophone conferences."
+    },
+    {
+      "id": "cenco",
+      "name": "Conférence Épiscopale Nationale du Congo (formerly Conférence Épiscopale du Zaïre)",
+      "type": "episcopal_conference",
+      "territories": [
+        "CD"
+      ]
+    },
+    {
+      "id": "stako",
+      "name": "Ständige Kommission für die Herausgabe der gemeinsamen liturgischen Bücher im deutschen Sprachgebiet",
+      "type": "inter_conference_body",
+      "territories": [
+        "DE",
+        "AT",
+        "CH",
+        "LI",
+        "LU"
+      ],
+      "note": "Issues the common liturgical books for the German-speaking conferences."
+    },
+    {
+      "id": "nbk",
+      "name": "Nederlandse Bisschoppenconferentie (with the Belgian bishops for Flanders)",
+      "type": "episcopal_conference",
+      "territories": [
+        "NL",
+        "BE"
+      ],
+      "note": "Published through the Nationale Raad voor Liturgie."
+    },
+    {
+      "id": "cei",
+      "name": "Conferenza Episcopale Italiana",
+      "type": "episcopal_conference",
+      "territories": [
+        "IT",
+        "SM"
+      ]
+    },
+    {
+      "id": "milano",
+      "name": "Arcidiocesi di Milano",
+      "type": "diocese",
+      "territories": [
+        "IT"
+      ],
+      "note": "Issuing authority for the Ambrosian Rite books."
+    },
+    {
+      "id": "cea",
+      "name": "Conferencia Episcopal Argentina",
+      "type": "episcopal_conference",
+      "territories": [
+        "AR"
+      ],
+      "note": "Its 2009 Missal is the edition adopted by the conferences of Bolivia, Paraguay and Uruguay (and used in Chile)."
+    },
+    {
+      "id": "cem",
+      "name": "Conferencia del Episcopado Mexicano",
+      "type": "episcopal_conference",
+      "territories": [
+        "MX"
+      ]
+    },
+    {
+      "id": "cee",
+      "name": "Conferencia Episcopal Española",
+      "type": "episcopal_conference",
+      "territories": [
+        "ES"
+      ]
+    },
+    {
+      "id": "cep-pe",
+      "name": "Conferencia Episcopal Peruana",
+      "type": "episcopal_conference",
+      "territories": [
+        "PE"
+      ]
+    },
+    {
+      "id": "cec",
+      "name": "Conferencia Episcopal de Colombia",
+      "type": "episcopal_conference",
+      "territories": [
+        "CO"
+      ]
+    },
+    {
+      "id": "cep-pt",
+      "name": "Conferência Episcopal Portuguesa",
+      "type": "episcopal_conference",
+      "territories": [
+        "PT"
+      ]
+    },
+    {
+      "id": "cnbb",
+      "name": "Conferência Nacional dos Bispos do Brasil",
+      "type": "episcopal_conference",
+      "territories": [
+        "BR"
+      ]
+    },
+    {
+      "id": "cet",
+      "name": "Conferència Episcopal Tarraconense",
+      "type": "regional_conference",
+      "territories": [
+        "ES-CT"
+      ],
+      "note": "Regional conference of the dioceses of Catalonia; its Catalan Missal is also used in Andorra (Diocese of Urgell)."
+    },
+    {
+      "id": "kish",
+      "name": "Konferenca Ipeshkvnore e Shqipërisë",
+      "type": "episcopal_conference",
+      "territories": [
+        "AL"
+      ]
+    },
+    {
+      "id": "ccbr",
+      "name": "Conference of Catholic Bishops of Russia",
+      "type": "episcopal_conference",
+      "territories": [
+        "RU"
+      ]
+    },
+    {
+      "id": "celra",
+      "name": "Conference of the Latin Bishops of the Arab Regions (CELRA)",
+      "type": "regional_conference",
+      "territories": [
+        "JO",
+        "PS",
+        "IL",
+        "CY",
+        "LB",
+        "SY",
+        "IQ",
+        "EG",
+        "BH",
+        "KW",
+        "QA",
+        "SA",
+        "AE",
+        "OM",
+        "YE",
+        "SO",
+        "SD"
+      ],
+      "note": "Its liturgical office is that of the Latin Patriarchate of Jerusalem."
+    },
+    {
+      "id": "kkbb",
+      "name": "Conference of Catholic Bishops in Belarus",
+      "type": "episcopal_conference",
+      "territories": [
+        "BY"
+      ]
+    },
+    {
+      "id": "hbk",
+      "name": "Hrvatska biskupska konferencija",
+      "type": "episcopal_conference",
+      "territories": [
+        "HR"
+      ]
+    },
+    {
+      "id": "crbc",
+      "name": "Chinese Regional Bishops' Conference (Taiwan)",
+      "type": "episcopal_conference",
+      "territories": [
+        "TW"
+      ]
+    },
+    {
+      "id": "cbk",
+      "name": "Česká biskupská konference",
+      "type": "episcopal_conference",
+      "territories": [
+        "CZ"
+      ]
+    },
+    {
+      "id": "mkpk",
+      "name": "Magyar Katolikus Püspöki Konferencia",
+      "type": "episcopal_conference",
+      "territories": [
+        "HU"
+      ]
+    },
+    {
+      "id": "kwi",
+      "name": "Konferensi Waligereja Indonesia",
+      "type": "episcopal_conference",
+      "territories": [
+        "ID"
+      ]
+    },
+    {
+      "id": "cbcj",
+      "name": "Catholic Bishops' Conference of Japan",
+      "type": "episcopal_conference",
+      "territories": [
+        "JP"
+      ]
+    },
+    {
+      "id": "cbck",
+      "name": "Catholic Bishops' Conference of Korea",
+      "type": "episcopal_conference",
+      "territories": [
+        "KR",
+        "KP"
+      ]
+    },
+    {
+      "id": "cer",
+      "name": "Conferința Episcopală a României",
+      "type": "episcopal_conference",
+      "territories": [
+        "RO"
+      ]
+    },
+    {
+      "id": "kbs",
+      "name": "Konferencia biskupov Slovenska",
+      "type": "episcopal_conference",
+      "territories": [
+        "SK"
+      ]
+    },
+    {
+      "id": "ssk",
+      "name": "Slovenska škofovska konferenca",
+      "type": "episcopal_conference",
+      "territories": [
+        "SI"
+      ]
+    },
+    {
+      "id": "stockholm",
+      "name": "Katolska stiftet i Stockholm (Katolska Liturgiska Nämnden)",
+      "type": "diocese",
+      "territories": [
+        "SE"
+      ]
+    },
+    {
+      "id": "krkeu",
+      "name": "Conference of the Roman Catholic Bishops of Ukraine",
+      "type": "episcopal_conference",
+      "territories": [
+        "UA"
+      ]
+    },
+    {
+      "id": "cbcv",
+      "name": "Catholic Bishops' Conference of Vietnam",
+      "type": "episcopal_conference",
+      "territories": [
+        "VN"
+      ]
+    },
+    {
+      "id": "kep",
+      "name": "Konferencja Episkopatu Polski",
+      "type": "episcopal_conference",
+      "territories": [
+        "PL"
+      ]
+    },
+    {
+      "id": "hk",
+      "name": "Catholic Diocese of Hong Kong",
+      "type": "diocese",
+      "territories": [
+        "HK"
+      ],
+      "note": "Immediately subject to the Holy See; belongs to no episcopal conference. Its Diocesan Liturgy Commission issues the diocese's Chinese liturgical books."
+    }
+  ]
+}

@@ -34,9 +34,20 @@ The full edition line, with canonical IDs (`missale_romanum_1474` … `missale_r
 
 ## Vernacular editions
 
-Since the Second Vatican Council the liturgy is celebrated in the vernacular, with translations of the Roman Missal undertaken by Bishops' Conferences. These are identified as `<book>_<year>_<bcp47>`: the English edition published in the United States in 2011 is `missale_romanum_2011_en_US`; an eventual Spanish edition for the United States would be `missale_romanum_XXXX_es_US`.
+Since the Second Vatican Council the liturgy is celebrated in the vernacular, with translations of the Roman Missal undertaken by Bishops' Conferences and confirmed by the Holy See. A vernacular edition is identified by the year on its title page, its language and the authority that issued it: `<book>_<year>_<lang>_<authority>`. The English edition published for the United States in 2011 is `missale_romanum_2011_en_usccb` (formerly `missale_romanum_2011_en_US`, kept as an alias); the USCCB's Spanish *Misal Romano, Tercera Edición* (2018) is `missale_romanum_2018_es_usccb`.
 
-Open use-case questions carried over for the committee:
+The 2026 Roman Missal survey (about 245 territories) is recorded in [`data/editions.json`](../data/editions.json) and [`data/usage.json`](../data/usage.json). It answers the use-case questions carried over from the CRMETDR:
 
-- do the Spanish-speaking countries of Central / South America each publish their own language edition of the Roman Missal?
-- does CELAM publish a single language edition, with each country / diocese adapting on a practical level when publishing the liturgical Ordo?
+- **The Spanish-speaking countries do not each publish their own edition.** A few editions form families that others adopt:
+  - the Mexican edition (`missale_romanum_2013_es_cem`), adopted across Central America and Venezuela;
+  - the Southern Cone edition (`missale_romanum_2009_es_cea`), whose title page names its adoption by Bolivia, Paraguay and Uruguay (it is also used in Chile);
+  - the Spanish CEE edition (`missale_romanum_2016_es_cee`), the base of the Peruvian edition and used in the Dominican Republic, Cuba, Ecuador and Equatorial Guinea.
+
+  Colombia (`missale_romanum_2025_es_cec`) and Peru publish their own.
+- **CELAM does not publish a single edition** with national adaptations. A CELAM Latin-American digital text circulates, but the editions in force are issued by national conferences and adopted by their neighbours.
+
+The same pattern holds elsewhere:
+- one English ICEL text is published as separate editions by the conferences of England and Wales, the United States, Canada, Ireland, India, New Zealand and the Philippines;
+- the French AELF Missal (`missale_romanum_2021_fr_cef`) serves francophone Africa and the overseas territories;
+- the German *Messbuch* of 1988 is still in force in every German-speaking diocese;
+- CELRA's Arabic Missal (`missale_romanum_2022_ar_celra`) serves the Latin Church from the Levant to the Gulf.
